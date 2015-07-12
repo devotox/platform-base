@@ -1,0 +1,7 @@
+{
+	"verbose": true,
+	"ext": "js json html",
+	"events": {
+		"restart": "osascript -e 'display notification \"Restarting API Server: '${FILENAME##*/}' changed\" with title \"API Server\"'"
+	}
+}

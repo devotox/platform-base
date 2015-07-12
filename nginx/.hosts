@@ -1,0 +1,25 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+
+::1             localhost
+127.0.0.1	    localhost
+255.255.255.255	broadcasthost
+
+127.0.0.1 platform.local.com
+127.0.0.1 platform.local.co.uk
+127.0.0.1 www.platform.local.com
+127.0.0.1 www.platform.local.co.uk
+
+127.0.0.1 app.platform.local.com
+127.0.0.1 app.platform.local.co.uk
+127.0.0.1 www.app.platform.local.com
+127.0.0.1 www.app.platform.local.co.uk
+
+127.0.0.1 intranet.platform.local.com
+127.0.0.1 intranet.platform.local.co.uk
+127.0.0.1 www.intranet.platform.local.com
+127.0.0.1 www.intranet.platform.local.co.uk
