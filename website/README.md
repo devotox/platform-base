@@ -87,6 +87,9 @@ Specify what it takes to deploy your app.
 * Install Atom ( Text Editor )
 	* Install Atom -> [Atom](https://atom.io/download/mac)
 
+* Install Fish ( Bash Shell Replacement )
+	* Install Fish -> [Fish](http://fishshell.com/files/2.2.0/fish.pkg)
+
 * Install Homebrew
 	* `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 	* Upgrade Brew -> `brew update && brew upgrade`

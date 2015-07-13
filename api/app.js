@@ -11,7 +11,6 @@ var argv			= require('winston');
 var express			= require('express');
 var bodyParser		= require('body-parser');
 var cookieParser	= require('cookie-parser');
-var session			= require('express-session');
 
 
 // setup the server configuration based on environment / command-line options
@@ -20,7 +19,6 @@ var configuration = {
 	host: "localhost",
 	model_version: "v1",
 	controller_version: "v1",
-	session_secret: "session_secret",
 	node_port: argv.http || process.env.NODE_PORT || 3000
 };
 
@@ -59,7 +57,6 @@ app.use('/api/qunit', express.static(__dirname + '/node_modules/qunitjs/qunit'))
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({ secret: configuration.session_secret, saveUninitialized: true, resave: false }));
 
 app.use(express.query());
 

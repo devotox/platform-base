@@ -116,6 +116,9 @@ Specify what it takes to deploy your app.
 	* `git clone https://github.com/<your-github-username>/platform.git`
 	* `cd platform`
 
+### Add upstream
+* `git remote add upstream https://github.com/DnD-Enterprises/platform-base.git`
+
 ### Configuring Application
 * `npm run init-app`
 
@@ -247,6 +250,6 @@ Specify what it takes to deploy your app.
 * App - Port: 39000, Nginx Incoming Port: 39100
 * API - Uses Nodemon
 * To initiate live reloads (due to the fact we are using self signed certificates) you need to visit these urls
-	* [Website Web Socket](https://platform.local.com:39000/livereload)
-	* [App Web Socket](https://app.platform.local.com:37100/livereload)
-	* [Intranet Web Socket](https://intranet.platform.platform.local.com:38100/livereload)
+	* [Website Web Socket](https://platform.local.com:37100/livereload)
+	* [App Web Socket](https://app.platform.local.com:39100/livereload)
+	* [Intranet Web Socket](https://intranet.platform.local.com:38100/livereload)
