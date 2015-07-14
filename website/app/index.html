@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie10 lt-ie9 lt-ie8 ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie10 lt-ie9 ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="lt-ie10 ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="" lang="en">
+<!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PlatformBase</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PlatformBase</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for 'head'}}
+	{{content-for 'head'}}
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/platform-base.css">
+	<link rel="stylesheet" href="assets/vendor.css">
+	<link rel="stylesheet" href="assets/platform-base.css">
 
-    {{content-for 'head-footer'}}
+	{{content-for 'head-footer'}}
   </head>
   <body>
-    {{content-for 'body'}}
+	{{content-for 'body'}}
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/platform-base.js"></script>
+	<script src="assets/vendor.js"></script>
+	<script src="assets/platform-base.js"></script>
 
-    {{content-for 'body-footer'}}
+	{{content-for 'body-footer'}}
   </body>
 </html>

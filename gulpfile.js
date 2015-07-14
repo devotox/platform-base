@@ -4,6 +4,8 @@
 
 var gulp = require('gulp');
 var pkg = require('./package.json');
+var current_directory = process.cwd();
+
 var $ = require('gulp-load-plugins')({
 	camelize: true
 });
@@ -17,6 +19,10 @@ var exit = function() {
 	setTimeout(function() {
 		process.exit(0);
 	}, 100);
+}
+
+var ucfirst = function(str) {
+	return str.charAt(0).toUpperCase() + str.substr(1);
 }
 
 // ==================================== Default Task `gulp` ==================================================== //
@@ -182,77 +188,49 @@ gulp.task('test', ['test-api', 'test-website'/*, 'test-app', 'test-intranet'*/],
 
 // ==================================== Link ==================================================== //
 
+var linkModules = function(directory){
+	var config = {
+		tests: ['.jshintrc'],
+		public: ['humans.txt'],
+		remove: ['bower_components/bower_components', 'node_modules/node_modules'],
+		root: ['node_modules', 'bower_components', 'package.json', 'bower.json', '.editorconfig', '.watchmanconfig', '.travis.yml', 'testem.json', '.jscsrc', '.jshintrc', '.bowerrc']
+	}
+	var arr = [];
 
-gulp.task('link-app', $.shell.task([
-	'test -d app && cd app && ln -sf ../node_modules node_modules && ln -sf ../bower_components bower_components || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.watchmanconfig .watchmanconfig || echo "[ Link ] No App Folder"',
-	'test -d app && cd app/public && ln -sf ../../humans.txt humans.txt || echo "[ Link ] No App Folder"',
-	'test -d app && cd app/tests  && ln -sf ../../.jshintrc .jshintrc || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.editorconfig .editorconfig || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../package.json package.json || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../testem.json testem.json || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.travis.yml .travis.yml || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../bower.json bower.json || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.jshintrc .jshintrc || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.bowerrc .bowerrc || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && ln -sf ../.jscsrc .jscsrc || echo "[ Link ] No App Folder"',
+	var addLink = function(file, destination, cmd){
+		cmd = cmd || 'ln -sf';
+		var path = [ current_directory, '/', file ].join('');
+		destination = [ directory, destination || ''].join('');
 
-	'test -d app && cd app && rm -rf bower_components/bower_components || echo "[ Link ] No App Folder"',
-	'test -d app && cd app && rm -rf node_modules/node_modules || echo "[ Link ] No App Folder"'
-]));
+		arr.push([ 'test -d', directory, '&& cd', destination, '&&', cmd, path, file, '|| echo "[ Link ]" No', ucfirst(directory), 'Folder' ].join(' '));
+	};
 
-gulp.task('link-intranet', $.shell.task([
-	'test -d intranet && cd intranet && ln -sf ../node_modules node_modules && ln -sf ../bower_components bower_components || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.watchmanconfig .watchmanconfig || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet/public && ln -sf ../../humans.txt humans.txt || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet/tests  && ln -sf ../../.jshintrc .jshintrc || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.editorconfig .editorconfig || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../package.json package.json || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../testem.json testem.json || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.travis.yml .travis.yml || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../bower.json bower.json || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.jshintrc .jshintrc || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.bowerrc .bowerrc || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && ln -sf ../.jscsrc .jscsrc || echo "[ Link ] No Intranet Folder"',
+	config.root.forEach(function(file){
+		addLink(file);
+	});
 
-	'test -d intranet && cd intranet && rm -rf bower_components/bower_components || echo "[ Link ] No Intranet Folder"',
-	'test -d intranet && cd intranet && rm -rf node_modules/node_modules || echo "[ Link ] No Intranet Folder"'
-]));
+	config.public.forEach(function(file){
+		addLink(file, '/public');
+	});
 
-gulp.task('link-website', $.shell.task([
-	'test -d website && cd website && ln -sf ../node_modules node_modules && ln -sf ../bower_components bower_components || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.watchmanconfig .watchmanconfig || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website/public && ln -sf ../../humans.txt humans.txt || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website/tests  && ln -sf ../../.jshintrc .jshintrc || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.editorconfig .editorconfig || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../package.json package.json || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../testem.json testem.json || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.travis.yml .travis.yml || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../bower.json bower.json || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.jshintrc .jshintrc || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.bowerrc .bowerrc || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && ln -sf ../.jscsrc .jscsrc || echo "[ Link ] No Website Folder"',
+	config.tests.forEach(function(file){
+		addLink(file, '/tests');
+	});
 
-	'test -d website && cd website && rm -rf bower_components/bower_components || echo "[ Link ] No Website Folder"',
-	'test -d website && cd website && rm -rf node_modules/node_modules || echo "[ Link ] No Website Folder"'
-]));
+	config.remove.forEach(function(file){
+		addLink(file, null, 'rm -rf');
+	});
 
-gulp.task('link-api', $.shell.task([
-	'test -d api && cd api && ln -sf ../node_modules node_modules && ln -sf ../bower_components bower_components || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.watchmanconfig .watchmanconfig || echo "[ Link ] No API Folder"',
-	'test -d api && cd api/tests  && ln -sf ../../.jshintrc .jshintrc || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.editorconfig .editorconfig || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../package.json package.json || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../testem.json testem.json || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.travis.yml .travis.yml || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../bower.json bower.json || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.jshintrc .jshintrc || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.bowerrc .bowerrc || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && ln -sf ../.jscsrc .jscsrc || echo "[ Link ] No API Folder"',
+	return arr;
+};
 
-	'test -d api && cd api && rm -rf bower_components/bower_components || echo "[ Link ] No API Folder"',
-	'test -d api && cd api && rm -rf node_modules/node_modules || echo "[ Link ] No API Folder"'
-]));
+gulp.task('link-api', $.shell.task(linkModules('api')));
+
+gulp.task('link-app', $.shell.task(linkModules('app')));
+
+gulp.task('link-website', $.shell.task(linkModules('website')));
+
+gulp.task('link-intranet', $.shell.task(linkModules('intranet')));
 
 
 gulp.task('link', ['link-api', 'link-website'/*, 'link-app', 'link-intranet'*/], function() {
