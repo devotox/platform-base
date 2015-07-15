@@ -1,8 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+
 # SSL / Config
 sslcert/*
-!sslcert/.gitkeep
 api/tests/config.js
 .ebextensions/environment.config
 
@@ -13,6 +13,27 @@ app/dist
 .htpasswd
 .nginx
 tmp
+
+# symlinked Files
+api/.*
+api/bower.json
+api/testem.json
+api/package.json
+
+website/.*
+website/bower.json
+website/testem.json
+website/package.json
+
+intranet/.*
+intranet/bower.json
+intranet/testem.json
+intranet/package.json
+
+app/.*
+app/bower.json
+app/testem.json
+app/package.json
 
 
 # dependencies
@@ -88,3 +109,6 @@ cordova/platforms/wp8/*.csproj.user
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Allow Gitkeep
+!*.gitkeep

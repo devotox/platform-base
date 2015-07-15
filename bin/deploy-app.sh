@@ -9,8 +9,9 @@ echo "########################################################"
 echo ""
 
 # Retrieve from command line
-version=$1
-description=$2
+profile=$1
+version=$2
+description=$3
 
 # If not entered in command line ask for details
 if [ "$version" = "" ]
@@ -21,6 +22,11 @@ fi
 if [ "$description" = "" ]
 then
 	read -p "Description: " description
+fi
+
+if [ "$profile" = "" ]
+then
+	read -p "Profile: " profile
 fi
 
 gitignore_path="$PWD/.gitignore"
@@ -48,7 +54,12 @@ git tag -a "$version" -m "$description"
 echo ""
 
 # Deploy application version
-eb init && eb deploy
+if [ "$profile" = "" ]
+then
+	eb init && eb deploy
+else
+	eb init --profile "$profile" && eb deploy --profile "$profile"
+fi
 echo ""
 
 # Return to current branch

@@ -15,9 +15,9 @@
   "scripts": {
 	"install-globals": "gulp stop; gulp install-globals",
 	"update-globals": "gulp stop; gulp update-globals",
-	"start-prod": "gulp stop; gulp start-prod",
-	"start-dev": "gulp stop; gulp start-dev",
-	"start": "gulp stop; gulp start-api",
+	"start-prod": "gulp stop; gulp link; gulp start-prod",
+	"start-dev": "gulp stop; gulp link; gulp start-dev",
+	"start": "gulp stop; gulp link; gulp start-api",
 	"update-app": "sh bin/update-app.sh",
 	"init-app": "sh bin/init-app.sh",
 	"deploy": "sh bin/deploy-app.sh",
