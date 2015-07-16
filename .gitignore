@@ -110,5 +110,6 @@ cordova/platforms/wp8/*.csproj.user
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-# Allow Gitkeep
+# Allowed Files
 !*.gitkeep
+!*.ember-cli
