@@ -118,6 +118,7 @@ Specify what it takes to deploy your app.
 
 ### Add upstream
 * `git remote add upstream https://github.com/DnD-Enterprises/platform-base.git`
+* `git branch --unset-upstream`
 
 ### Configuring Application
 * `npm run init-app`

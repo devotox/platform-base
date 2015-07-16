@@ -12,23 +12,23 @@
 	"doc": "doc",
 	"test": "tests"
   },
-  "scripts": {
-	"install-globals": "gulp stop; gulp install-globals",
-	"update-globals": "gulp stop; gulp update-globals",
-	"start-prod": "gulp stop; gulp link; gulp start-prod",
-	"start-dev": "gulp stop; gulp link; gulp start-dev",
-	"start": "gulp stop; gulp link; gulp start-api",
-	"update-app": "sh bin/update-app.sh",
-	"init-app": "sh bin/init-app.sh",
-	"deploy": "sh bin/deploy-app.sh",
-	"build-prod": "gulp build-prod",
-	"build": "gulp build",
-	"test": "gulp test",
-	"link": "gulp link"
-  },
   "engines": {
 	"node": ">= 0.12.0",
 	"npm": ">=2.0.0"
+  },
+  "scripts": {
+	"deploy": "sh bin/deploy-app.sh",
+	"init-app": "sh bin/init-app.sh",
+	"update-app": "sh bin/update-app.sh",
+	"update-globals": "gulp stop; gulp update-globals",
+	"install-globals": "gulp stop; gulp install-globals",
+	"start-prod": "gulp stop; gulp link; gulp start-prod",
+	"start-dev": "gulp stop; gulp link; gulp start-dev",
+	"start": "gulp stop; gulp link; gulp start-api",
+	"build-prod": "gulp link; gulp build-prod",
+	"build": "gulp link; gulp build",
+	"test": "gulp link; gulp test",
+	"link": "gulp link"
   },
   "dependencies": {
 	"async": "^0.9.0",
