@@ -61,8 +61,8 @@
 			};
 
 			var icon = $('<i/>', {
-				class: _class(closed),
-				title: _title(),
+				"class": _class(closed),
+				"title": _title(),
 			}).css( _style() );
 
 			$this.each(function() {
