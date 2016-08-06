@@ -1,0 +1,110 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####          Install Docker & Dependencies         ####"
+echo "########################################################"
+echo
+
+# Install/Update Homebrew
+if ! [ -x "$(command -v brew)" ]; then
+	echo "Homebrew not found, installing..."
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew tap homebrew/services
+	brew tap homebrew/completions
+	brew install bash-completion
+	brew install awscli awsebcli
+	brew install brew-cask-completion
+else
+	echo "Homebrew found, updating..."
+	brew uninstall --force brew-cask
+	brew update; brew upgrade; brew cleanup; brew cask cleanup; brew prune
+fi
+
+echo
+# Install Node
+if ! [ -x "$(command -v node)" ]; then
+	brew install node;
+else
+	echo "Node JS found, skipping installation..."
+fi
+
+echo
+# Install NPM
+if ! [ -x "$(command -v npm)" ]; then
+	brew install node --force;
+else
+	echo "NPM found, Updating Packages..."
+	npm install -g npm bower ember-cli strongloop mocha karma csslint jshint eslint eslint-config-ember
+fi
+
+echo
+# Install Postgres
+if ! [ -x "$(command -v postgres)" ]; then
+	brew install postgres
+	export PATH="'/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH"
+else
+	echo "Postgres found, skipping creation..."
+fi
+
+echo
+# Install Virtualbox
+if ! [ -x "$(command -v virtualbox)" ]; then
+	echo "Virtualbox not found, installing..."
+	brew cask install virtualbox
+else
+	echo "Virtualbox found, skipping installation..."
+fi
+
+echo
+# Install Docker Toolbox ( docker, docker-compose, docker-machine )
+if ! [ -x "$(command -v docker)" ]; then
+	echo "Docker Toolbox not found, installing..."
+	brew install docker docker-compose docker-machine
+else
+	echo "Docker Toolbox found, skipping installation..."
+fi
+
+echo
+# Install Watchman
+if ! [ -x "$(command -v watchman)" ]; then
+	echo "Watchman not found, installing..."
+	brew install watchman
+else
+	echo "Watchman found, skipping installation..."
+fi
+
+echo
+# Install FSwatch
+if ! [ -x "$(command -v fswatch)" ]; then
+	echo "FS Watch not found, installing..."
+	brew install fswatch
+else
+	echo "FS Watch found, skipping installation..."
+fi
+
+echo
+# Install Core Utilities
+if ! [ -x "$(command -v greadlink)" ]; then
+	echo "GNU core utilities not found, installing..."
+	brew install coreutils
+	brew install gnu-sed --with-default-names
+else
+	echo "GNU core utilities found, skipping installation..."
+fi
+
+echo
+# Create SSL Certificates
+if ! [ -f sslcert/server.crt ]; then
+	sh bin/create-ssl-cert.sh
+else
+	echo "SSL Certificate found. skipping creation..."
+fi
+
+echo
+# Create secrets/passwords environment variables
+if ! [ -f shared/env/secrets.env ]; then
+	sh bin/create-secrets-env.sh
+else
+	echo "Secrets file found. skipping creation..."
+fi

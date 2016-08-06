@@ -1,0 +1,57 @@
+#navigation {
+	top: 0;
+	width: 100%;
+	z-index: 998;
+	position: fixed;
+	background: $white;
+	height: $nav-height;
+	line-height: $nav-height;
+
+	> .ember-view {
+		height: $nav-height;
+	}
+
+	#navigation-bar {
+		#nav-desktop {
+			margin-right: 1.4em;
+		}
+	}
+
+	will-change: transform, background;
+	@include vendor-prefix(transform, transform3D(0, 0, 0));
+	@include vendor-prefix(transition, background $transition-delay ease);
+
+	&.page-parallax {
+		&.page-parallax-init { @include disable-transition; }
+
+		@media only screen and (min-width: $screen-md-min) {
+			background: transparent;
+
+			a, .nav-select-wrapper, select {
+				color: $white;
+			}
+
+			#nav-mobile {
+				a, .nav-select-wrapper {
+					color: initial;
+				}
+			}
+
+			#navigation-bar {
+				box-shadow: none;
+			}
+
+			#logo-container {
+				img {
+					&.dark {
+						display: none;
+					}
+					&.light {
+						display: inline-block;
+					}
+
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+[data-page="search"] {
+	@include base-margin();
+
+	@include base-content();
+
+	.search-icon {
+		@include postfix-input-icon;
+	}
+}

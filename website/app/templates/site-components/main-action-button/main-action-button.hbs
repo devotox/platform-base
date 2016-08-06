@@ -1,0 +1,7 @@
+<div class="fixed-action-btn">
+	{{partial "site-components/main-action-button/main-button"}}
+
+	{{#unless session.isAuthenticated}}
+		{{partial "site-components/main-action-button/main-links"}}
+	{{/unless}}
+</div>

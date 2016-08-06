@@ -1,0 +1,150 @@
+@mixin base-css {
+	margin:0;
+	padding:0;
+
+	display: flex;
+	min-height: 100%;
+	min-height: 100vh;
+	position: relative;
+	word-wrap: break-word;
+	flex-direction: column;
+
+	color: $primary-font-color;
+	font-family: $primary-font;
+	font-size: $primary-font-size;
+	font-weight: $primary-font-weight;
+
+	touch-action: manipulation;
+	-ms-touch-action: manipulation;
+
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+}
+
+@mixin base-headers {
+	h1, h2, h3, h4, h5, h6 {
+		margin:0;
+		padding: 0;
+		font-weight: 200;
+		font-family: $secondary-font;
+	}
+}
+
+@mixin base-globals {
+	a { outline: none; }
+
+	label { color: $grey; }
+
+	*[hidden] { display: none; }
+}
+
+@mixin base-margin {
+	margin-top: 5em;
+	margin-bottom: 10em;
+
+	@media (max-width: $screen-sm-min) {
+		margin-top: 1.5em;
+		margin-bottom: 3em;
+	}
+}
+
+@mixin base-content {
+
+	.content {
+		h1 {
+			font-size: 45px;
+			@media (max-width: $screen-sm-min) {
+				font-size: 30px;
+			}
+		}
+
+		header {
+			padding-top:20px;
+			font-weight: normal;
+
+			h3 {
+				font-weight: normal;
+				padding-bottom:10px;
+			}
+		}
+
+		h2 {
+			font-size:25px;
+			padding-top:30px;
+			font-weight: 400;
+			line-height:40px;
+			padding-bottom:10px;
+		}
+
+		.row {
+			padding-top:10px;
+		}
+
+		ol {
+			padding-left:0px;
+			list-style-type: none;
+
+			@media (min-width: $screen-sm-min) {
+				padding-left:50px;
+			}
+		}
+
+		p {
+			@media (min-width: $screen-sm-min) {
+				margin-bottom: 20px;
+			}
+		}
+
+		p, li {
+			font-size: 18px;
+			margin-top: 0;
+
+			&.preamble {
+				margin-top: 0.5em;
+			}
+		}
+
+		li p {
+			position: relative;
+			padding-left: 50px;
+			@include scale-pixels('font-size', 14px, 18px);
+
+			> span.num {
+				position: absolute;
+				left: 0px;
+			}
+
+		}
+
+		ul p {
+			padding-left:0;
+		}
+	}
+
+	.team-member {
+		overflow: hidden;
+		margin-bottom:30px;
+
+		h2 span {
+			color:#999;
+		}
+
+		img {
+			display: block;
+			-webkit-transition:all .5s;
+			transition:all .5s;
+			width: 120px;
+
+			@media (max-width: $screen-sm-min) {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@media (min-width: $screen-sm-min) {
+				float:left;
+				margin-right: 30px;
+			}
+
+		}
+	}
+}

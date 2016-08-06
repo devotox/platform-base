@@ -1,0 +1,96 @@
+//DO NOT CHANGE THE SCREEN SIZES BELOW
+$screen-xxxs-min:   0px;
+$screen-xxs-min:  480px;
+$screen-xs-min:   600px;
+$screen-sm-min:   768px;
+$screen-md-min:   993px;
+$screen-lg-min:  1200px;
+$screen-xlg-min: 1600px;
+
+$screen-xxxs-max: $screen-xxs-min - 1;
+$screen-xxs-max:  $screen-xs-min  - 1;
+$screen-xs-max:   $screen-sm-min  - 1;
+$screen-sm-max:   $screen-md-min  - 1;
+$screen-md-max:   $screen-lg-min  - 1;
+$screen-lg-max:   $screen-xlg-min - 1;
+
+//IPad screen sizes
+$ipad-portrait:   768px;
+$ipad-landscape: 1024px;
+
+//Colours
+$red: #a94442;
+$blue: #3b5998;
+$green: #5aaa83;
+$white: #ffffff;
+$black: #000000;
+$purple: #af6e9b;
+$orange: #faaf46;
+$dark-blue: #27449b;
+$dark-grey: #2f363a;
+$light-grey: #afb2b3;
+$dark-green: #339063;
+$slight-grey: #cccccc;
+$middle-blue: #71b4c2;
+$light-green: #6bb390;
+$light-grey-border: #62686a;
+
+$github-color: #333;
+$twitter-color: #00aced;
+$linkedin-color: #007bb6;
+$facebook-color: #3b5998;
+$instagram-color: #517fa4;
+$wordpress-color: #86d5e6;
+$googleplus-color: #dd4b39;
+
+$grey: #777;
+$dark: #3c464b;
+$light: #dbdbdb;
+$star-color: #faaf46;
+$light-secondary: #ebeced;
+
+$primary-color: $green;
+$tertiary-color: $dark;
+$secondary-color: $dark-green;
+
+$patient-color: $blue;
+$practise-color: $blue;
+$specialist-color: $green;
+
+//Fonts
+$primary-font-size: 14px;
+$primary-font-weight: 300;
+$primary-font-color: $dark;
+
+$primary-font: 'Raleway', sans-serif;
+$tertiary-font: 'Roboto', sans-serif;
+$secondary-font: 'Graphik', sans-serif;
+
+//Scaffolding
+$padding-xs: 30px;
+$mob-nav-height: 55px;
+$mob-menu-width: 275px;
+
+$nav-height: 70px;
+$transition-delay: 500ms;
+
+$page-padding-bottom-lg: 360px;
+$page-padding-bottom-md: 360px;
+$page-padding-bottom-sm: 490px;
+$page-padding-bottom-xs: 490px;
+$page-padding-bottom-xxs: 720px;
+
+$footer-height-lg: $page-padding-bottom-lg;
+$footer-height-md: $page-padding-bottom-md;
+$footer-height-sm: $page-padding-bottom-sm;
+$footer-height-xs: $page-padding-bottom-xs;
+$footer-height-xxs: $page-padding-bottom-xxs;
+
+//Banner
+$banner-height: 840px;
+$banner-background-image: url('images/brand/brand-image-dark.png');
+
+//Background Images
+$footer-background-image: url('/assets/svg/carbon-fiber.svg');
+$primary-background-image: url('/assets/svg/carbon-fiber-green.svg');
+$footer-copyright-background-image: url('/assets/svg/carbon-fiber-dark.svg');

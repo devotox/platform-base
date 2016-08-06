@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	{{content-for "head"}}
+
+	<link rel="stylesheet" href="/assets/vendor.css">
+	<link rel="stylesheet" href="/assets/platform-base.css">
+
+	{{content-for "head-footer"}}
+  </head>
+  <body>
+	{{content-for "body"}}
+
+	<script pace-src="/assets/vendor.js"></script>
+	<script pace-src="/assets/platform-base.js"></script>
+
+	{{content-for "body-footer"}}
+  </body>
+</html>

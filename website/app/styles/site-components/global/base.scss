@@ -1,0 +1,34 @@
+html, body {
+
+	@include base-css();
+
+	@include base-headers();
+
+	@include base-globals();
+
+	#page {
+		flex: 1 0 auto;
+		padding-top: $nav-height;
+		padding-bottom: $page-padding-bottom-xxs;
+
+		@media only screen and (max-width: $screen-xxs-max) {
+			padding-bottom: $page-padding-bottom-xxs;
+		}
+
+		@media only screen and (min-width: $screen-xs-min) {
+			padding-bottom: $page-padding-bottom-xs;
+		}
+
+		@media only screen and (min-width: $screen-sm-min) {
+			padding-bottom: $page-padding-bottom-sm;
+		}
+
+		@media only screen and (min-width: $screen-md-min){
+			padding-bottom: $page-padding-bottom-md;
+		}
+
+		@media only screen and (min-width: $screen-lg-min){
+			padding-bottom: $page-padding-bottom-lg;
+		}
+	}
+}

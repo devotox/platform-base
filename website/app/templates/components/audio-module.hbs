@@ -1,0 +1,17 @@
+{{#if (not type)}}
+<div class="audio-module-action none-button col s12" {{action "alert" item on="click" bubbles=false}}>
+	<i class="fa fa-exclamation-triangle"></i>
+</div>
+{{/if}}
+
+{{#if (eq type "play")}}
+<div class="audio-module-action play-button col s12 {{if item.playing 'active'}}" {{action "playAudio" item on="click" bubbles=false}}>
+	<i class="fa {{if item.playing 'fa-pause' 'fa-play'}}"></i>
+</div>
+{{/if}}
+
+{{#if (eq type "record")}}
+<div class="audio-module-action record-button col s2 {{if item.recording 'active'}}" {{action "recordAudio" item on="click" bubbles=false}}>
+	<i class="fa {{if item.recording 'fa-microphone-slash' 'fa-microphone'}}"></i>
+</div>
+{{/if}}

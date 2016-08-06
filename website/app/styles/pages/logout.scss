@@ -1,0 +1,19 @@
+[data-page="logout"] {
+
+	padding: 1em 0 3em 0;
+
+	@media (min-width: $screen-sm-min) {
+		padding: 2em 0 6em 0;
+	}
+
+	@media (min-width: $screen-md-min) {
+		padding: 3em 0 9em 0;
+
+	}
+
+	.logout-text-wrapper {
+		width: 100%;
+		margin: 1em auto;
+		text-align: center;
+	}
+}

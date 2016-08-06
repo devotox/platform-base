@@ -1,0 +1,43 @@
+{
+  "name": "profile",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "defaultFn": "uuidv4",
+      "postgresql": {
+        "dataType": "uuid"
+      }
+    },
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "birthdate": {
+      "type": "date",
+      "required": false
+    },
+    "gender": {
+      "type": "string",
+      "required": false
+    },
+    "attributes": {
+      "type": "object",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

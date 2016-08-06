@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####              Pre Compose Environment           ####"
+echo "########################################################"
+echo
+
+if [ -z "$machine_name" ]; then
+	source docker/vars
+fi
+
+echo
+echo "Update Attach Terminal..."
+source docker/attach-terminal
+
+echo
+echo "Update Hosts IP..."
+source docker/update-hosts
+
+echo
+echo "Clean Docker Images..."
+source docker/clean

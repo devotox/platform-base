@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####             Deploy Docker Images               ####"
+echo "########################################################"
+echo
+
+source docker/deploy/vars
+
+# echo
+# echo "Pull Previous Images from ECR..."
+# sh docker/deploy/pull "latest"
+
+echo
+echo "Push New Images to ECR..."
+sh docker/deploy/push $1
+
+echo
+echo "Deploy Application..."
+source docker/deploy/app

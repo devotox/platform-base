@@ -1,0 +1,5 @@
+[data-page="about"] {
+	@include base-margin();
+
+	@include base-content();
+}

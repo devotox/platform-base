@@ -1,0 +1,27 @@
+.container {
+	max-width: 1920px;
+	
+	&.large {
+		width: 96%;
+
+		@media only screen and (min-width: $screen-xs-min) {
+			width: 94%;
+		}
+
+		@media only screen and (min-width: $screen-sm-min) {
+			width: 90%;
+		}
+
+		@media only screen and (min-width: $screen-md-min) {
+			width: 86%;
+		}
+
+		@media only screen and (min-width: $screen-lg-min) {
+			width: 82%;
+		}
+
+		@media only screen and (min-width: $screen-xlg-min) {
+			width: 80%;
+		}
+	}
+}

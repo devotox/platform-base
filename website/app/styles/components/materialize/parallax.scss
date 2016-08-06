@@ -1,0 +1,69 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By Devonte
+ * Parallax
+ */
+
+
+.parallax-container {
+  $parallax-height: 500px;
+  $parallax-large-height: $parallax-height + 300px;
+
+  line-height: 0;
+  height: $parallax-height;
+  min-height: $parallax-height;
+  color: rgba(47, 156, 224, 0.8);
+
+  p {
+	line-height: 2rem;
+  }
+  &.parallax-container-large {
+	height: $parallax-large-height;
+	min-height: $parallax-large-height;
+  }
+}
+
+.parallax-container .section {
+  width: 100%;
+}
+
+@media only screen and (max-width : $screen-sm-min) {
+  .parallax-container .section {
+	position: absolute;
+	top: 40%;
+  }
+  #index-banner .section {
+	top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+	top: 0;
+  }
+  .parallax-container .section {
+	  top: 20%;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+html.lt-ie10 {
+	.parallax {
+		img {
+			left: 0;
+		}
+	}
+	.valign-wrapper section {
+		@include vertical-align;
+	}
+}

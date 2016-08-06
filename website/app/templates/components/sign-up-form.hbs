@@ -1,0 +1,109 @@
+<section id="sign-up-form-container" class="base-form">
+	<fieldset class="container sign-up-form-wrapper">
+
+		<h5 class="title center-align">{{t "components.forms.sign-up-form.title"}}</h5>
+		<form class="form-horizontal" {{action "sign-up" on="submit"}}>
+
+			<div class="row control-group">
+				<div class="input-field col s12">
+					{{input value=email type="text" id="sign-up-form-email" class="validate" key-up="reset"}}
+					<label for="sign-up-form-email">
+						{{t "components.forms.sign-up-form.inputs.email.label"}}
+					</label>
+				</div>
+			</div>
+
+			<div class="row control-group">
+				<div class="input-field col s12">
+					{{input value=username type="text" id="sign-up-form-username" class="validate" key-up="reset"}}
+					<label for="sign-up-form-username">
+						{{t "components.forms.sign-up-form.inputs.username.label"}}
+					</label>
+				</div>
+			</div>
+
+			<div class="row control-group">
+				<div class="input-field col s12">
+					{{input value=password type="password" id="sign-up-form-password" class="validate" key-up="reset"}}
+					<label for="sign-up-form-password">
+						{{t "components.forms.sign-up-form.inputs.password.label"}}
+					</label>
+				</div>
+			</div>
+
+			{{#if extended}}
+				<div class="row control-group">
+					<div class="input-field col s12">
+						{{input value=firstname type="text" id="sign-up-form-firstname" class="validate" key-up="reset"}}
+						<label for="sign-up-form-firstname">
+							{{t "components.forms.sign-up-form.inputs.firstname.label"}}
+						</label>
+					</div>
+				</div>
+
+				<div class="row control-group">
+					<div class="input-field col s12">
+						{{input value=lastname type="text" id="sign-up-form-lastname" class="validate" key-up="reset"}}
+						<label for="sign-up-form-lastname">
+							{{t "components.forms.sign-up-form.inputs.lastname.label"}}
+						</label>
+					</div>
+				</div>
+
+				<div class="row control-group">
+					<div class="input-field col s12">
+						{{input value=birthdate type="date" id="sign-up-form-birthdate" class="validate" key-up="reset"}}
+						<label for="sign-up-form-birthdate">
+							{{t "components.forms.sign-up-form.inputs.birthdate.label"}}
+						</label>
+					</div>
+				</div>
+
+				<div class="row control-group">
+					<div class="input-field col s12">
+						{{input value=phone type="text" id="sign-up-form-phone" class="validate" key-up="reset"}}
+						<label for="sign-up-form-phone">
+							{{t "components.forms.sign-up-form.inputs.phone.label"}}
+						</label>
+					</div>
+				</div>
+
+				<div class="row control-group">
+					<div class="input-field col s12">
+						<select value=account-type id="sign-up-form-gender" class="validate">
+							<option value="" disabled="disabled" selected="selected">{{t "components.forms.sign-up-form.inputs.gender.label"}}</option>
+							<option value="0">{{t "components.forms.sign-up-form.inputs.gender.options.female"}}</option>
+							<option value="1">{{t "components.forms.sign-up-form.inputs.gender.options.male"}}</option>
+						</select>
+					</div>
+				</div>
+			{{/if}}
+
+				<div class="row valign-wrapper">
+					<div class="sign-up-button main-button valign col s12">
+						<button type="submit" class="sign-up btn valign right" disabled={{isProcessing}}>
+							{{t "components.forms.sign-up-form.buttons.sign-up.text"}}
+						</button>
+					</div>
+				</div>
+		</form>
+
+		<div class="error-container center-align red-text text-lighten-2">{{error}}</div>
+	</fieldset>
+
+	{{#link-to 'login' class="login-link main-link"}}
+	<section class="container main-link-inner login-link-inner">
+		<div class="valign-wrapper">
+			<div class="main-link-text-wrapper login-text-wrapper valign center-align">
+				<span class="main-link-text-1 sign-up-text-1">
+					{{t "components.forms.sign-up-form.links.login.text.one"}}
+				</span>
+				<span class="main-link-text-2 sign-up-text-2">
+					{{t "components.forms.sign-up-form.links.login.text.two"}}
+				</span>
+				<i class="fa {{t "assets.components.forms.sign-up-form.links.login.icon"}}"></i>
+			</div>
+		</div>
+	</section>
+	{{/link-to}}
+</section>

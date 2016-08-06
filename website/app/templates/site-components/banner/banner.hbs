@@ -1,0 +1,13 @@
+<div id="index-banner" class="parallax-container parallax-container-large">
+  {{partial 'site-components/banner/banner-text'}}
+
+  {{#if device.isDesktop}}
+	{{partial 'site-components/banner/banner-button'}}
+  {{/if}}
+
+  {{#if device.isModernDesktop}}
+	{{partial 'site-components/banner/banner-video'}}
+  {{/if}}
+
+  {{partial 'site-components/banner/banner-image'}}
+</div>

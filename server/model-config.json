@@ -1,0 +1,53 @@
+{
+  "_meta": {
+	"sources": [
+	  "loopback/common/models",
+	  "loopback/server/models",
+	  "../common/models",
+	  "./models"
+	],
+	"mixins": [
+	  "loopback/common/mixins",
+	  "loopback/server/mixins",
+	  "loopback-cache/mixins",
+	  "../common/mixins",
+	  "./mixins"
+	]
+  },
+  "User": {
+	"dataSource": "platform",
+	"public": false
+  },
+  "AccessToken": {
+	"dataSource": "platform",
+	"public": false
+  },
+  "ACL": {
+	"dataSource": "platform",
+	"public": false
+  },
+  "RoleMapping": {
+	"dataSource": "platform",
+	"public": false
+  },
+  "Role": {
+	"dataSource": "platform",
+	"public": false
+  },
+  "Email": {
+	"dataSource": "mailgun",
+	"public": false
+  },
+  "profile": {
+	"dataSource": "platform",
+	"public": true
+  },
+  "user": {
+	"dataSource": "platform",
+	"public": true
+  },
+  "video": {
+	"dataSource": "db",
+	"public": true
+  }
+}

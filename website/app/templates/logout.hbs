@@ -1,0 +1,11 @@
+<div class="container" data-page="{{pageName}}">	
+
+	<div class="container {{t "assets.pages.logout.container.class"}}">
+		{{#if session.isAuthenticated}}
+		<h4>{{t "pages.logout.authenticated.text"}}</h4>
+		{{else}}
+		<h4>{{t "pages.logout.unauthenticated.text"}}</h4>
+		{{/if}}
+	</div>
+	
+</div>

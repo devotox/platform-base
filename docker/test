@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####              Test Docker Environment           ####"
+echo "########################################################"
+echo
+
+app=$1;
+
+source docker/vars
+
+source docker/banner
+
+source docker/attach-terminal
+
+if [ -z "$app" ] || [ "$app" = "api" ]
+then
+	echo
+	echo "Run API Tests..."
+	docker exec -it ${application_name}_api-test_1 gulp test
+fi
+
+if [ -z "$app" ] || [ "$app" = "website" ]
+then
+	echo
+	echo "Run Website Tests..."
+	docker exec -it ${application_name}_website-test_1 ember test
+fi
+
+if [ -z "$app" ] || [ "$app" = "intranet" ]
+then
+	echo
+	echo "Run Intranet Tests..."
+	docker exec -it ${application_name}_intranet-test_1 ember test
+fi

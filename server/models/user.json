@@ -1,0 +1,29 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "emailVerificationRequired": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "roles": {
+      "type": "hasMany",
+      "model": "role",
+      "foreignKey": "roleid",
+      "through": "RoleMapping"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

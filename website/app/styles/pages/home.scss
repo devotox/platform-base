@@ -1,0 +1,16 @@
+[data-page="home"] {
+	.section {
+		.row {
+			&.text {
+				padding-top: 5em;
+				padding-bottom: 3em;
+			}
+			p {
+				font-weight: 400;
+			}
+		}
+	}
+	.send-email-icon {
+		@include postfix-input-icon($blue);
+	}
+}

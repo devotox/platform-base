@@ -1,0 +1,58 @@
+#banner {
+	margin-top: -$nav-height;
+	min-height: $nav-height;
+
+	#index-banner {
+		height: $banner-height;
+		min-height: $banner-height;
+	}
+
+	#banner-video {
+		&.parallax {
+			position: absolute;
+			padding-top: 0;
+		}
+		video {
+			right: 0;
+			bottom: 0;
+			width: auto;
+			height: auto;
+			z-index: -100;
+			min-width: 100%;
+			min-height: 100%;
+			position: absolute;
+			background-size: cover;
+			background-color: $black;
+		}
+
+		@media only screen and (max-width : 992px) {
+			display: none;
+		}
+	}
+
+	#banner-image {
+		background: $banner-background-image 50% 0% / cover no-repeat transparent;
+
+		@media only screen and (min-width: $screen-md-min) {
+			display: none;
+		}
+	}
+
+	#banner-text, #banner-button {
+		margin-top: 200px;
+		width: 100%;
+
+		i {
+			padding-right: 5px;
+		}
+		a {
+			@include main-background-transition();
+		}
+		.main-header {
+			font-weight: bold;
+		}
+	}
+	#banner-button {
+		margin-top: 235px;
+	}
+}

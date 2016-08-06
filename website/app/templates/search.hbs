@@ -1,0 +1,14 @@
+<div class="container large" data-page="{{pageName}}">
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			<i class="right search-icon {{t "assets.pages.search.icon.class"}}"></i>
+			{{input value=search id="search-input" type="text" class="input-md validate"}}
+			<label for="search-input" class="{{if search 'active'}}">{{t "pages.search.label.text"}}</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<h5 class="col s12">{{t "pages.search.show-search-term.text"}} {{search}}</h5>
+	</div>
+</div>

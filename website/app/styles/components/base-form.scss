@@ -1,0 +1,89 @@
+.base-form {
+
+	fieldset {
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+		@media only screen and (max-width: $screen-xs-min - 1) {
+
+			width: 100%;
+			border: none;
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	.title {
+		font-weight: 200;
+		margin-bottom: 1em;
+	}
+
+	i.application-loading {
+		font-size: 5em;
+	}
+
+	.fa.prefix {
+		line-height: 2;
+		padding-left:0.4em;
+	}
+
+	a i {
+		vertical-align: middle;
+	}
+
+	.main-button {
+		button {
+			@include main-background-transition();
+		}
+	}
+
+	.main-link {
+		display: block;
+		color: $primary-color;
+
+		@media only screen and (min-width: $screen-xs-min) {
+			color: $white;
+
+			.main-link-inner {
+				@include main-background-transition();
+			}
+		}
+
+		@media only screen and (max-width: $screen-xs-min - 1) {
+			.main-link-inner {
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+		}
+
+		.main-link-text-wrapper {
+			padding: 2em 0;
+			width: 100%;
+
+
+			span {
+				padding-right: 0.5em;
+			}
+
+			.main-link-text-2, i {
+				font-weight: 700;
+			}
+
+			i { font-size: 1.4em; }
+		}
+
+	}
+
+	.secondary-link {
+		a {
+			color: $grey;
+
+			&:hover {
+				color: $red;
+			}
+		}
+	}
+}

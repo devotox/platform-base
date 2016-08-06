@@ -1,0 +1,13 @@
+#!/bin/bash
+
+$app=""
+
+if [ -z "$app" ]; then
+	app="deploy"
+fi
+
+if [ -z "$machine_name" ]; then
+	source docker/deploy/vars
+fi
+
+docker-compose -p $application_name -f docker-compose/$app.yml run deploy "$@"

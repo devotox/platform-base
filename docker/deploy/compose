@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####           Compose Deploy Environment           ####"
+echo "########################################################"
+echo
+
+app=$1
+
+if [ -z "$app" ]; then
+	app="deploy"
+fi
+
+if [ -z "$machine_name" ]; then
+	source docker/deploy/vars
+fi
+
+echo
+echo "Build Deploy Image..."
+docker-compose -p $application_name -f docker-compose/$app.yml build --pull

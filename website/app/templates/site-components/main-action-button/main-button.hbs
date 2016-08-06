@@ -1,0 +1,9 @@
+<div class="btn-floating btn-large {{t "assets.main-action-button.main-button.class"}}">
+	{{#if session.isAuthenticated}}
+		{{#link-to 'search'}}
+			<i class="fa {{t "assets.main-action-button.main-button.authenticated.icon"}} large"></i>
+		{{/link-to}}
+	{{else}}
+		<i class="fa {{t "assets.main-action-button.main-button.icon"}} large"></i>
+	{{/if}}
+</div>

@@ -1,0 +1,163 @@
+
+// Custom Stylesheet
+//
+//  Use this file to override Materialize files so you can update
+//  the core Materialize files in the future
+//
+//  Made By Devonte
+//  Material Hamburger
+//
+
+$hamburger-split: 150%;
+$hamburger-margin: 3px;
+$hamburger-width: 30px;
+$hamburger-height: 4px;
+$hamburger-split-height: 5px;
+
+#hamburger {
+	cursor: pointer;
+	height: inherit;
+	padding-left: 1.5em;
+
+	&.button-collapse {
+		@media only screen and (min-width: $screen-md-min){
+			display: none;
+		}
+	}
+}
+
+.material-design-hamburger {
+	transition: all 300ms ease-in-out;
+}
+
+.material-design-hamburger__icon {
+	position: relative;
+	background: $dark;
+	color: $dark;
+	border: none;
+	outline: 0;
+	top: 30px;
+}
+
+.material-design-hamburger__layer {
+	display: block;
+	position: relative;
+	background: inherit;
+	width: $hamburger-width;
+	height: $hamburger-height;
+	@include vendor-prefix(animation-duration, 300ms);
+	@include vendor-prefix(animation-timing-function, ease-in-out);
+}
+
+.material-design-hamburger__layer:before,
+.material-design-hamburger__layer:after {
+	left: 0;
+	content: '';
+	display: block;
+	width: inherit;
+	position: absolute;
+	background: inherit;
+	height: $hamburger-split-height;
+	@include vendor-prefix(animation-duration, 300ms);
+	@include vendor-prefix(animation-timing-function, ease-in-out);
+}
+
+.material-design-hamburger__layer:before {
+	margin-bottom: $hamburger-margin;
+	bottom: $hamburger-split;
+}
+
+.material-design-hamburger__layer:after {
+	margin-top: $hamburger-margin;
+	top: $hamburger-split;
+}
+
+.material-design-hamburger__icon--to-arrow {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide);
+	@include vendor-prefix(animation-fill-mode, forwards);
+}
+
+.material-design-hamburger__icon--to-arrow:before {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide-before);
+	@include vendor-prefix(animation-fill-mode, forwards);
+}
+
+.material-design-hamburger__icon--to-arrow:after {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide-after);
+	@include vendor-prefix(animation-fill-mode, forwards);
+}
+
+.material-design-hamburger__icon--from-arrow {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide-from);
+}
+
+.material-design-hamburger__icon--from-arrow:before {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide-before-from);
+}
+
+.material-design-hamburger__icon--from-arrow:after {
+	@include vendor-prefix(animation-name, material-design-hamburger__icon--slide-after-from);
+}
+
+@include keyframes(material-design-hamburger__icon--slide) {
+	0% {
+	}
+
+	100% {
+		@include vendor-prefix(transform, rotate(180deg));
+	}
+}
+
+@include keyframes(material-design-hamburger__icon--slide-before) {
+	0% {
+	}
+
+	100% {
+		@include vendor-prefix(transform, rotate(45deg));
+		margin: 3% 37%;
+		width: 75%;
+	}
+}
+
+@include keyframes(material-design-hamburger__icon--slide-after) {
+	0% {
+	}
+
+	100% {
+		@include vendor-prefix(transform, rotate(-45deg));
+		margin: 3% 37%;
+		width: 75%;
+	}
+}
+
+@include keyframes(material-design-hamburger__icon--slide-from) {
+	0% {
+		@include vendor-prefix(transform, rotate(-180deg));
+	}
+
+	100% {
+	}
+}
+
+@include keyframes(material-design-hamburger__icon--slide-before-from) {
+	0% {
+		@include vendor-prefix(transform, rotate(45deg));
+		margin: 3% 37%;
+		width: 75%;
+	}
+
+	100% {
+	}
+}
+
+
+@include keyframes(material-design-hamburger__icon--slide-after-from) {
+	0% {
+		@include vendor-prefix(transform, rotate(-45deg));
+		margin: 3% 37%;
+		width: 75%;
+	}
+
+	100% {
+	}
+}

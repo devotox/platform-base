@@ -1,0 +1,108 @@
+#navigation-bar {
+	height: inherit;
+	line-height: inherit;
+	background-color: inherit;
+
+	div.nav-wrapper {
+		width: 100%;
+	}
+	a.button-collapse,
+	a.button-collapse i {
+		height: inherit;
+		line-height: inherit;
+	}
+
+	a,
+	select,
+	.nav-select-wrapper {
+		border: 0;
+		color: $dark;
+		outline: none;
+		font-size: 16px;
+		cursor: pointer;
+		will-change: transform, color;
+		@include vendor-prefix(transform, transform3D(0, 0, 0));
+		@include vendor-prefix(transition, color $transition-delay ease);
+	}
+
+	select {
+		padding: 0;
+		height: $nav-height;
+		background: transparent;
+		@include vendor-prefix(appearance, none);
+	}
+
+	.nav-select-wrapper:before {
+		top: 0;
+		right: 3px;
+		content: "\f0d7";
+		position: absolute;
+		pointer-events: none;
+		display: inline-block;
+		font-family: FontAwesome;
+	}
+
+	ul,
+	ul li {
+		//height: inherit;
+		line-height: inherit;
+
+		a,
+		.nav-select-wrapper {
+			padding: 0 15px;
+
+			i,
+			span {
+				font-size: 16px;
+				height: inherit;
+				line-height: inherit;
+				display: inline-block;
+			}
+			i {
+				padding-right: 5px;
+				margin-right: 0;
+			}
+		}
+	}
+
+	#nav-desktop {
+		margin-right: 1em;
+	}
+
+	#nav-mobile {
+		z-index: -1; // So that the sidebar goes underneath the navbar
+		padding-top: 5em;
+		min-height: 100vh;
+
+		li {
+			height: initial;
+			a:hover {
+				background-color: initial;
+			}
+		}
+
+		span {
+			width: 88%;
+		}
+	}
+
+	#logo-container {
+		height: inherit;
+		line-height: inherit;
+
+		img {
+			width: 100px;
+			height: inherit;
+			margin-top: -10px;
+			display: inline-block;
+			vertical-align: middle;
+
+			&.dark {
+				display: inline-block;
+			}
+			&.light {
+				display: none;
+			}
+		}
+	}
+}

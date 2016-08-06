@@ -1,0 +1,13 @@
+version: '2'
+volumes:
+    deploy_data: {}
+services:
+    deploy:
+        privileged: true
+        image: devotox/deploy
+        container_name: platform-deploy
+        volumes:
+            - deploy_data:/root
+            - ~/.ssh:/root/.ssh
+            - ../:/var/app/current
+            - /var/run/docker.sock:/var/run/docker.sock

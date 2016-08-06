@@ -1,0 +1,35 @@
+{
+  "websiteUrl": "https://platform.local.com",
+  "legacyExplorer": false,
+  "restApiRoot": "/api",
+  "host": "localhost",
+  "httpOnly": false,
+  "apiPort": 3000,
+  "port": 3000,
+  "hostOptions": {
+    "port": "443",
+    "protocol": "https",
+    "host": "platform.local.com"
+  },
+  "remoting": {
+    "cors": false,
+    "context": {
+      "enableHttpContext": false
+    },
+    "rest": {
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "errorHandler": {
+      "disableStackTrace": false
+    }
+  }
+}

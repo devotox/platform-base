@@ -1,0 +1,420 @@
+<div class="container" data-page="{{pageName}}">
+	<h1 id="platform-website-in-ember">Platform Website in Ember</h1>
+	<p>This README outlines the details of collaborating on this Ember application. A short introduction of this app could easily go here.</p>
+	<h2 id="prerequisites">Prerequisites</h2>
+	<p>You will need the following things properly installed on your computer.</p>
+	<ul>
+		<li><a href="http://git-scm.com/">Git</a></li>
+		<li><a href="http://nodejs.org/">Node.js</a> (with NPM)</li>
+		<li><a href="http://bower.io/">Bower</a></li>
+		<li><a href="http://www.ember-cli.com/">Ember CLI</a></li>
+		<li><a href="http://phantomjs.org/">PhantomJS</a></li>
+	</ul>
+	<h2 id="optional">Optional</h2>
+	<ul>
+		<li><a href="http://ngrok.com/">Ngrok</a></li>
+		<li><a href="http://devcenter.heroku.com/">Heroku</a></li>
+		<li><a href="http://aws.amazon.com/code/6752709412171743">Elastic Beanstalk CLI</a></li>
+		<li><a href="https://www.firebase.com/docs/web/quickstart.html">Firebase</a></li>
+		<li><a href="http://aws.amazon.com/cli/">AWS</a></li>
+	</ul>
+	<h2 id="upgrade-node-and-npm">Upgrade Node and npm</h2>
+	<ul>
+		<li><code>sudo chown -R $(whoami):staff ~/.npm/</code> ( fixes need for sudo to install local node modules )</li>
+		<li><code>sudo chown -R $(whoami):staff /usr/local/lib/node_modules</code> ( Fixes need for sudo to install global node modules )</li>
+		<li><code>npm install npm -g</code></li>
+		<li><code>npm install n -g</code></li>
+		<li><code>n stable</code></li>
+	</ul>
+	<h2 id="installing-globals">Installing Globals</h2>
+	<ul>
+		<li><code>npm run install-globals</code></li>
+		<li><code>npm run install-globals2</code></li>
+		<li><code>npm run install-globals3</code> ( if you have homebrew installed )
+			<ul>
+				<li>OR</li>
+			</ul>
+		</li>
+		<li><code>npm install -g bower &amp;&amp; npm install -g ember-cli &amp;&amp; npm install -g broccoli-cli</code></li>
+		<li><code>npm install -g firebase-tools &amp;&amp; npm install -g phantomjs &amp;&amp; npm install -g cordova &amp;&amp; npm install -g node-inspector</code></li>
+		<li><code>brew install watchman &amp;&amp; brew install python &amp;&amp; pip install boto &amp;&amp; pip install awscli &amp;&amp; pip install awsebcli</code></li>
+		<li><code>bower cache clean &amp;&amp; npm cache clean</code></li>
+	</ul>
+	<h2 id="installation">Installation</h2>
+	<ul>
+		<li><code>git clone &lt;repository-url&gt;</code> this repository</li>
+		<li><code>cd &lt;new-directory&gt;</code></li>
+		<li><code>bower install</code></li>
+		<li><code>npm install</code></li>
+	</ul>
+	<h2 id="running-development">Running / Development</h2>
+	<ul>
+		<li><code>ember server</code></li>
+		<li>Visit your app at <a href="http://localhost:8081">http://localhost:8081</a>.</li>
+	</ul>
+	<h3 id="code-generators">Code Generators</h3>
+	<p>Make use of the many generators for code, try <code>ember help generate</code> for more details</p>
+	<h3 id="running-tests">Running Tests</h3>
+	<ul>
+		<li><code>ember test</code></li>
+		<li><code>ember test --server</code></li>
+	</ul>
+	<h3 id="building">Building</h3>
+	<ul>
+		<li><code>ember build</code> (development)</li>
+		<li><code>ember build --environment production</code> (production)</li>
+	</ul>
+	<h3 id="deploying">Deploying</h3>
+	<ul>
+		<li><code>npm run deploy-he</code> - Heroku</li>
+		<li><code>npm run deploy-fb</code> - Firebase</li>
+		<li><code>npm run deploy-eb</code> - Elastic Beanstalk</li>
+		<li><code>npm run deploy-all</code> - All Above</li>
+	</ul>
+	<h2 id="further-reading-useful-links">Further Reading / Useful Links</h2>
+	<ul>
+		<li><a href="http://emberjs.com/">ember.js</a></li>
+		<li><a href="http://www.ember-cli.com/">ember-cli</a></li>
+		<li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html">AWS Elastic Beanstalk</a></li>
+		<li>Development Browser Extensions
+			<ul>
+				<li><a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi">ember inspector for chrome</a></li>
+				<li><a href="https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/">ember inspector for firefox</a></li>
+			</ul>
+		</li>
+	</ul>
+	<h2 id="create-ember-app">Create Ember app</h2>
+	<ul>
+		<li><code>npm install -g brocolli-cli</code></li>
+		<li><code>npm install -g ember-cli</code></li>
+		<li><code>npm install -g phantomjs</code></li>
+		<li><code>npm install -g cordova</code></li>
+		<li><code>npm install -g bower</code></li>
+		<li><code>brew install watchman</code></li>
+		<li><code>ember new &lt;app-name&gt;</code></li>
+	</ul>
+	<h2 id="initialize-ember-app">Initialize Ember app</h2>
+	<ul>
+		<li><code>cd &lt;app-name&gt;</code></li>
+		<li><code>npm install &amp;&amp; bower install</code></li>
+		<li><code>ember serve</code> or <code>npm start</code></li>
+		<li>Site - Go to <a href="http://localhost:8081">http://localhost:8081</a></li>
+		<li>Tests - Go to <a href="http://localhost:8081/tests">http://localhost:8081/tests</a> </li>
+	</ul>
+	<h2 id="upgrading-ember-app">Upgrading Ember app</h2>
+	<ul>
+		<li><code>npm uninstall -g ember-cli</code></li>
+		<li><code>npm cache clean &amp;&amp; bower cache clean</code></li>
+		<li><code>npm install -g ember-cli@X.X.X</code></li>
+		<li>
+			<p><code>rm -rf node_modules bower_site-components dist tmp</code></p>
+		</li>
+		<li>
+			<p><code>npm install ember-cli@X.X.X --save-dev</code></p>
+		</li>
+		<li><code>npm install &amp;&amp; bower install</code></li>
+		<li><code>ember -v</code></li>
+		<li><code>ember init</code> -- (BE CAREFUL: MAKE SURE TO CHECK DIFF SO AS NOT TO OVERRIDE ANYTHING USEFUL!!!)</li>
+	</ul>
+	<h2 id="global-variable">Global Variable</h2>
+	<ul>
+		<li>Name of Application is the name attribute from package.json</li>
+		<li>Name of Application i.e. &quot;platform&quot; is attached to the window so you get window.Platform</li>
+	</ul>
+	<h3 id="do-not-move-these-are-the-entry-points-for-your-application">Do Not Move - These are the entry points for your application</h3>
+	<pre><code>app/app.js
+app/styles/app.scss
+app/routes/application.js
+app/templates/application.hbs
+app/controllers/application.js
+</code></pre>
+	<h2 id="install-new-library">Install New Library</h2>
+	<ul>
+		<li>Install using <code>[ npm or bower ] install &lt;package_name&gt;</code></li>
+		<li>Use library within app by adding to Brocfile.js - app.import(&#39;path/to/file&#39;);</li>
+	</ul>
+	<h2 id="simple-routes">Simple Routes</h2>
+	<pre><code>app/routes/search.js
+app/templates/search.hbs
+app/controllers/search.js
+</code></pre>
+	<h4 id="create-routes">Create Routes</h4>
+	<ul>
+		<li>add routes to router.js </li>
+	</ul>
+	<h4 id="map-simple-route-example">Map Simple Route Example</h4>
+	<pre><code>Router.map(function() {
+	this.route(&#39;search&#39;);
+});
+</code></pre>
+	<h2 id="advanced-routes">Advanced Routes</h2>
+	<ul>
+		<li>Route Template in a different folder that route of templates folder</li>
+		<li>Add the folder name before the route i.e. path is <code>template/index</code> -&gt; this.route(&#39;index&#39;, { path: &#39;/index&#39;})</li>
+		<li>Corresponding Controllers &amp; Routes have to also then be in the corresponding folder name i.e. <code>templates/index</code> -&gt; <code>controllers/index</code></li>
+	</ul>
+	<h4 id="map-advanced-route-example">Map Advanced Route Example</h4>
+	<pre><code>Router.map(function() {
+	this.route(&#39;index&#39;, { path: &#39;/&#39; });
+	this.route(&#39;index&#39;, { path: &#39;/index&#39; });
+});
+</code></pre>
+	<p>`</p>
+	<h2 id="add-content-for-hook">Add Content For Hook</h2>
+	<ul>
+		<li>Ember generate in-repo-addon &lt;addon-name&gt;</li>
+		<li>In lib/&lt;add-on-name&gt;/index.js add a contentFor function</li>
+	</ul>
+	<h4 id="add-content-example">Add Content Example</h4>
+	<pre><code>contentFor: function(type, config) {
+	if(type != &#39;head&#39;) return;
+	console.log(type, config);
+},
+</code></pre>
+	<h2 id="controllers">Controllers</h2>
+	<ul>
+		<li>All controllers for pages must have a property called pageName - this will allow it to be linked up in places like CSS</li>
+	</ul>
+	<h4 id="controller-link-example">Controller Link Example</h4>
+	<pre><code>HTML - &lt;div data-page=&quot;&lt;pageName&gt;&quot;&gt;&lt;/div&gt;
+CSS - [data-page=&quot;&lt;pageName&gt;&quot;]
+</code></pre>
+	<h2 id="update-head">Update Head</h2>
+	<ul>
+		<li>Document Head is created using a content-hook in libs/base-head/index.js</li>
+		<li>To update the head: modify libs/base-head/head.hbs</li>
+		<li>To add a new variable to the context: modify libs/base-head/index.js</li>
+		<li>note - we should find a way to be able to pass in any context to base-head</li>
+	</ul>
+	<h2 id="css">CSS</h2>
+	<ul>
+		<li>Place all CSS files in app/styles - We will be using SASS so all files should end in .scss extension</li>
+		<li>Do not move the app.scss file, place @import statements to modularize your css</li>
+		<li>it would be best if app.scss only had import statements and is used to bootstrap the css</li>
+	</ul>
+	<h4 id="app-scss-file-example">app.scss File Example</h4>
+	<pre><code>//Global Styles &amp; Variables
+@import &#39;site-components/global/variables&#39;;
+@import &#39;site-components/global/mixins&#39;;
+@import &#39;site-components/global/fonts&#39;;
+@import &#39;site-components/global/base&#39;;
+
+// Page Styles
+@import &#39;home&#39;;
+@import &#39;search&#39;;
+@import &#39;terms-and-conditions&#39;;
+</code></pre>
+	<h2 id="global-css">Global CSS</h2>
+	<ul>
+		<li>Place global css styles in site-components/global/base.scss</li>
+		<li>Place variables in site-components/global/variables.scss</li>
+		<li>Place Fonts in site-components/global/fonts.scss</li>
+	</ul>
+	<h2 id="page-css">Page CSS</h2>
+	<ul>
+		<li>Place page css in <code>app/styles/&lt;page-template-name&gt;</code> - this will keep our structure very similar to everything else in the app</li>
+		<li>To target just a single page with the css - wrap up each page in a <code>&lt;section data-page=&quot;{{pageName}}&quot;&gt;</code> - which should be coming from the page controller</li>
+		<li>In the css file wrap all the css in <code>[data-page=&quot;&lt;pageName&gt;&quot;]</code> - this would allow just that page to get the css from this file</li>
+	</ul>
+	<h2 id="site-component-css">Site-Component CSS</h2>
+	<ul>
+		<li>Place site-component css in <code>app/styles/site-components/&lt;site-component-template-name&gt;</code> - this will keep our structure very similar to eeverything else in the app</li>
+	</ul>
+	<h2 id="mixins">Mixins</h2>
+	<ul>
+		<li>A mixin can be created using `ember generate mixn &lt;mixin-name&gt;</li>
+		<li>A mixin was used to create the <code>afterRenderEvent</code> that can be used with views</li>
+	</ul>
+	<h4 id="mixin-example">Mixin Example</h4>
+	<pre><code>import Ember from &#39;ember&#39;;
+
+export default Ember.Mixin.create({
+	afterRenderEvent : Ember.K,
+
+	// This hook is guaranteed to be executed
+	// when the root element  of this view has been inserted into the DOM.
+
+	didInsertElement : function(){
+		this._super(...arguments);
+		Ember.run.scheduleOnce(&#39;afterRender&#39;, this, this.afterRenderEvent);
+	}
+});
+</code></pre>
+	<h4 id="after-render-example">After Render Example</h4>
+	<pre><code>import Ember from &#39;ember&#39;;
+
+import AfterRender from &#39;../mixins/after-render&#39;;
+
+export default Ember.View.extend(AfterRender, {
+	afterRenderEvent: function() {
+		$(&#39;.button-collapse&#39;).sideNav();
+	}
+});
+</code></pre>
+	<h2 id="ngrok">Ngrok</h2>
+	<ul>
+		<li>Used to create a tunnel to your local machine </li>
+		<li>Can make testing on mobile a lot easier</li>
+		<li>You can share the link with others to get instant feedback</li>
+		<li><code>ngrok http --subdomain=platform 8081</code></li>
+		<li>Site - <a href="http://platform.ngrok.io">http://platform.ngrok.io</a></li>
+		<li>Server Requests - localhost:4040 </li>
+	</ul>
+	<h2 id="cordova-app">Cordova App</h2>
+	<ul>
+		<li>we use ember-cli-cordova and npm module cordova installed globally</li>
+		<li>Install Xcode (Run it at least once to answer yes to some stuff)</li>
+		<li>Install JRE (Java Runtime Environment) &amp; JDK (Java Development Kit)</li>
+		<li>cd /cordova; cordova platform add ios; cordova platform add android</li>
+	</ul>
+	<h4 id="installing-android-sdk">Installing Android SDK</h4>
+	<ul>
+		<li>Download Android SDK Tools </li>
+		<li>Then run /path/to/android/sdk (wherever you downloaded it to) </li>
+		<li>Scroll to the bottom of the SDK manager and add to the already selected files (HAXM from intel)</li>
+		<li>/path/to/android/sdk avd</li>
+		<li>Click on device definitions</li>
+		<li>Click on existing definition and then create AVD</li>
+		<li>Add remaining parameters</li>
+		<li>do not use host gpu</li>
+		<li>set cpu to intel atom x86</li>
+	</ul>
+	<h3 id="android">Android</h3>
+	<ul>
+		<li><code>brew install android-sdk</code></li>
+	</ul>
+	<h4 id="ios">IOS</h4>
+	<ul>
+		<li><code>npm install -g ios-deploy</code></li>
+		<li><code>npm install -g ios-sim</code></li>
+	</ul>
+	<h3 id="build-app">Build App</h3>
+	<ul>
+		<li><code>ember cordova:build --environment=production --platform=android</code></li>
+		<li><code>ember cordova:build --environment=production --platform=ios</code></li>
+	</ul>
+	<h2 id="run-app">Run App</h2>
+	<ul>
+		<li><code>ember cordova emulate  --platform android</code></li>
+		<li><code>ember cordova emulate  --platform ios</code></li>
+		<li><code>ember cordova run android</code></li>
+		<li><code>ember cordova run ios</code></li>
+	</ul>
+	<h2 id="sign-app">Sign App</h2>
+	<ul>
+		<li><code>keytool -genkey -v -keystore &lt;appname&gt;.keystore -alias &lt;appname&gt; -keyalg RSA -keysize 2048 -validity 10000</code></li>
+		<li><code>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore &lt;appname&gt;.keystore android-release-unsigned.apk &lt;appname&gt;</code></li>
+		<li><code>zipalign -v 4 android-release-unsigned.apk &lt;appname&gt;.apk</code></li>
+	</ul>
+	<h2 id="remote-debugging">Remote Debugging</h2>
+	<ul>
+		<li>we use ember-cli-remote-inspector</li>
+		<li>Visit localhost:30820 to open up the inspector</li>
+		<li>Visit localhost:8081 from another browser.</li>
+	</ul>
+	<h2 id="heroku-deployment">Heroku Deployment</h2>
+	<ul>
+		<li>READ FOR OPTIONS: <a href="https://github.com/tonycoco/heroku-buildpack-ember-cli">Heroku Buildpack</a></li>
+		<li><code>heroku create platform --buildpack https://github.com/tonycoco/heroku-buildpack-ember-cli.git</code></li>
+		<li><code>git commit -am &quot;Empty commit for Heroku deployment&quot; --allow-empty</code></li>
+		<li><code>git push heroku master</code></li>
+	</ul>
+	<h3 id="ensure-running">Ensure Running</h3>
+	<ul>
+		<li><code>heroku ps:scale web=1</code></li>
+		<li><code>heroku ps</code></li>
+		<li><code>heroku open</code></li>
+		<li><code>heroku logs --tail</code></li>
+		<li>Run Heroku commands - heroku run i.e. (heroku run node)</li>
+	</ul>
+	<h3 id="addons">Addons</h3>
+	<ul>
+		<li><code>heroku addons:create papertrail</code></li>
+		<li><code>heroku addons:create heroku-postgresql:hobby-dev</code></li>
+		<li><code>heroku config:set Variable=2 - Set config vars</code></li>
+	</ul>
+	<h4 id="heroku-terminate">Heroku Terminate</h4>
+	<ul>
+		<li><code>heroku apps:destroy &lt;app-name&gt; --confirm &lt;app-name&gt;</code></li>
+	</ul>
+	<h3 id="multiple-environments">Multiple Environments</h3>
+	<ul>
+		<li><a href="https://devcenter.heroku.com/articles/multiple-environments">https://devcenter.heroku.com/articles/multiple-environments</a></li>
+		<li>heroku domains:add &lt;custom-url&gt; i.e. heroku domains:add example.com</li>
+	</ul>
+	<h4 id="sample-db">Sample DB</h4>
+	<pre><code>var pg = require(&#39;pg&#39;);
+
+app.get(&#39;/db&#39;, function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+	client.query(&#39;SELECT * FROM test_table&#39;, function(err, result) {
+	  done();
+	  if (err)
+	   { console.error(err); response.send(&quot;Error &quot; + err); }
+	  else
+	   { response.send(result.rows); }
+	});
+  });
+})
+</code></pre>
+	<h2 id="more-deployments">More Deployments</h2>
+	<h4 id="azure">Azure</h4>
+	<ul>
+		<li><code>npm install -g ember-cli-azure-deploy</code></li>
+		<li><code>azure-deploy init</code></li>
+	</ul>
+	<h4 id="firebase">Firebase</h4>
+	<ul>
+		<li><code>npm install -g firebase-tools</code></li>
+		<li><code>firebase init</code></li>
+		<li><code>firebase deploy</code></li>
+		<li><code>firebase open</code></li>
+	</ul>
+	<h4 id="firebase-terminate">Firebase Terminate</h4>
+	<ul>
+		<li><code>firebase delete-site</code></li>
+	</ul>
+	<h4 id="elastic-beanstalk">Elastic Beanstalk</h4>
+	<ul>
+		<li><code>eb init</code></li>
+		<li><code>eb create</code></li>
+		<li><code>eb status --verbose</code></li>
+		<li><code>eb deploy</code></li>
+	</ul>
+	<h4 id="elastic-beanstalk-terminate">Elastic Beanstalk Terminate</h4>
+	<ul>
+		<li><code>eb terminate</code></li>
+		<li><code>eb terminate-all</code></li>
+	</ul>
+	<h2 id="full-android-build-devonte-">Full Android build (Devonte)</h2>
+	<ul>
+		<li>
+			<p>ember cordova:build --environment=production --platform=android; rm -rf ~/Downloads/android-release-unsigned.apk; cp /Users/devonte/Documents/Platform/platform/app/cordova/platforms/android/build/outputs/apk/android-release-unsigned.apk ~/Downloads/android-release-unsigned.apk; cd ~/Downloads; rm -rf platform.apk;</p>
+		</li>
+		<li>
+			<p>keytool -genkey -v -keystore platform.keystore -alias platform -keyalg RSA -keysize 2048 -validity 10000; </p>
+		</li>
+		<li>
+			<p>passphrase: platform</p>
+		</li>
+		<li>
+			<p>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore platform.keystore android-release-unsigned.apk platform; zipalign -v 4 android-release-unsigned.apk platform.apk</p>
+		</li>
+		<li>
+			<p>adb install apk platform.apk or adb push platform.apk /sdcard/Download or mv platform.apk ~/Dropbox then manually install</p>
+		</li>
+	</ul>
+	<h2 id="full-ios-build-devonte-">Full IOS build (Devonte)</h2>
+	<ul>
+		<li>ember cordova:build --environment=production --platform=ios; </li>
+		<li>ember cordova emulate --platform ios</li>
+	</ul>
+	<h2 id="current-url-s">Current URL&#39;s</h2>
+	<ul>
+		<li><a href="http://dev-env-smccugv4wm.elasticbeanstalk.com">http://dev-env-smccugv4wm.elasticbeanstalk.com</a></li>
+		<li><a href="https://crackling-inferno-1293.firebaseapp.com">https://crackling-inferno-1293.firebaseapp.com</a></li>
+		<li><a href="https://platform.herokuapp.com">https://platform.herokuapp.com</a></li>
+		<li><a href="http://platform.ngrok.io">http://platform.ngrok.io</a></li>
+		<li><a href="http://localhost:8081">http://localhost:8081</a></li>
+	</ul>
+</div>

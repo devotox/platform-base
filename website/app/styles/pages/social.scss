@@ -1,0 +1,5 @@
+[data-page="social"] {
+	@include base-margin();
+
+	@include base-content();
+}

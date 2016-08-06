@@ -1,0 +1,5 @@
+[data-page="items"] {
+	@include base-margin();
+
+	@include base-content();
+}

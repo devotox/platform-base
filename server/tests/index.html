@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>API Tests</title>
+	<link rel="stylesheet" href="/node_modules/qunitjs/qunit/qunit.css">
+
+	<link rel="shortcut icon" href="/api/assets/images/favicon/favicon.ico" type="image/x-icon" />
+	<link rel="icon" type="image/png" href="/api/assets/images/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/api/assets/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/api/assets/images/favicon/favicon-96x96.png" sizes="96x96">
+
+	<meta name="msapplication-wide310x150logo" content="/api/assets/images/favicon/widetile.png" />
+	<meta name="msapplication-square70x70logo" content="/api/assets/images/favicon/smalltile.png" />
+	<meta name="msapplication-square310x310logo" content="/api/assets/images/favicon/largetile.png" />
+	<meta name="msapplication-square150x150logo" content="/api/assets/images/favicon/mediumtile.png" />
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/api/assets/images/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/api/assets/images/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/api/assets/images/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/api/assets/images/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/api/assets/images/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/api/assets/images/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/api/assets/images/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/api/assets/images/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/api/assets/images/favicon/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/api/assets/images/favicon/android-chrome-192x192.png" sizes="192x192">
+</head>
+<body>
+
+	<!-- Qunit needs these containers -->
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<!-- Libraries (must also be required in MochUnit.js) -->
+	<script src='/node_modules/chai/chai.js'></script>
+	<script src='/node_modules/lodash/lodash.min.js'></script>
+	<script src='/node_modules/qunitjs/qunit/qunit.js'></script>
+	<script src='/node_modules/axios/dist/axios.min.js'></script>
+	<script src='/node_modules/bluebird/js/browser/bluebird.min.js'></script>
+	<script src='/node_modules/moment/min/moment-with-locales.min.js'></script>
+
+	<!-- Core (must be in this order) -->
+	<script src="/api/tests/config.js"></script>
+	<script src="/api/tests/MochaUnit.js"></script>
+	<script src="/api/tests/index.js"></script>
+
+</body>
+</html>

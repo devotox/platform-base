@@ -1,0 +1,68 @@
+# docker
+docker-compose.yml
+
+# SSL / Config
+# sslcert/*
+website/public/sitemap.xml
+.ebextensions/environment.config
+
+.htpasswd
+.nginx
+
+# git
+.git
+.gitignore
+
+# compiled output
+app.min*
+dist/*
+tmp/*
+
+# dependencies
+node_modules
+bower_components
+
+# tests
+test-reports/*
+test-coverage/*
+coverage/*
+
+# misc
+.DS_Store
+.sass-cache
+connect.lock
+testem.log
+npm-debug.log
+libpeerconnection.log
+
+thumbs.db
+*.komodoproject
+.komodotools
+*.sublime*
+
+# Others
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+build
+
+# Elastic Beanstalk Files
+.elasticbeanstalk
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Allow Gitkeep
+!*.gitkeep
+!*.ember-cli
+
+# api testing async cache files
+async-disk-cache/*

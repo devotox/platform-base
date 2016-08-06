@@ -1,0 +1,8 @@
+<div id="banner-button" class="no-pad-bot center">
+{{#unless isAuthenticated}}
+	{{#link-to 'sign-up' class='btn-large waves-effect waves-light'}}
+	<i class="fa {{t "assets.banner.button.icon"}}"></i>
+	<span>{{t "banner.button.text"}}</span>
+	{{/link-to}}
+{{/unless}}
+</div>

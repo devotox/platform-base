@@ -1,0 +1,112 @@
+#social-media-links {
+	$social-height: 25em;
+	height: $social-height;
+	min-height: $social-height;
+	background-color: $primary-color;
+	background-image: $primary-background-image;
+
+	.container {
+		padding: 0;
+		@include vertical-align;
+	}
+
+	.section, .row {
+		width: 100%;
+	}
+
+	.row {
+		margin: 0;
+		width: inherit;
+
+		& > div {
+			margin: 1em 0;
+			@include center-align;
+		}
+	}
+
+	a {
+		width: 100px;
+		height: 100px;
+		color: $white;
+		border-radius: 50%;
+		position: relative;
+		display: inline-block;
+		border: 2px solid $white;
+		background-size: 100% 200%;
+		@include scale-pixels('width', 80px, 120px);
+		@include scale-pixels('height', 80px, 120px);
+		@include scale-pixels('font-size', 10px, 16px);
+		@include vendor-prefix(transition, all .2s linear);
+
+		i {
+			left:0;
+			right:0;
+			padding:0;
+			color: $white;
+			display: block;
+			position: absolute;
+			@include center-align;
+			@include vertical-align;
+		}
+
+		&:hover {
+			background-position: 0 -100%;
+
+			&.-facebook {
+				background-color: $facebook-color;
+			}
+
+			&.-twitter {
+				background-color: $twitter-color;
+			}
+
+			&.-linkedin {
+				background-color: $linkedin-color;
+			}
+
+			&.-googleplus {
+				background-color: $googleplus-color;
+			}
+
+			&.-instagram {
+				background-color: $instagram-color;
+			}
+
+			&.-wordpress {
+				background-color: $wordpress-color;
+			}
+
+			&.-github {
+				background-color: $github-color;
+			}
+		}
+
+		&.-facebook {
+			background-image: linear-gradient(to bottom, transparent 50%, $facebook-color 50%);
+		}
+
+		&.-twitter {
+			background-image: linear-gradient(to bottom, transparent 50%, $twitter-color 50%);
+		}
+
+		&.-linkedin {
+			background-image: linear-gradient(to bottom, transparent 50%, $linkedin-color 50%);
+		}
+
+		&.-googleplus {
+			background-image: linear-gradient(to bottom, transparent 50%, $googleplus-color 50%);
+		}
+
+		&.-instagram {
+			background-image: linear-gradient(to bottom, transparent 50%, $instagram-color 50%);
+		}
+
+		&.-wordpress {
+			background-image: linear-gradient(to bottom, transparent 50%, $wordpress-color 50%);
+		}
+
+		&.-github {
+			background-image: linear-gradient(to bottom, transparent 50%, $github-color 50%);
+		}
+	}
+}

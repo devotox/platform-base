@@ -1,0 +1,29 @@
+{
+  "name": "platform-base",
+  "version": "1.0.0",
+  "description": "Platform Base",
+  "main": "index.js",
+  "author": "Devonte Emokpae",
+  "license": "MIT",
+  "homepage": "https://github.com/devotox/platform-base#readme",
+  "bugs": {
+	"url": "https://github.com/devotox/platform-base/issues"
+  },
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/devotox/platform-base.git"
+  },
+  "scripts": {
+	"test": "sh docker/test",
+	"serve": "sh docker/start",
+	"preversion": "npm test",
+	"postrelease": "npm publish",
+	"release": "npm version patch",
+	"postversion": "git push && git push --tags"
+  },
+  "keywords": [
+	"platform",
+	"ember",
+	"loopback"
+  ]
+}

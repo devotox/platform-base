@@ -1,0 +1,19 @@
+/* Custom Stylesheet */
+/**
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By Devonte
+* Date Picker
+*/
+
+.picker {
+	.picker__frame {
+		width: 400px;
+		min-width: 300px;
+		max-width: 400px;
+	}
+	.picker__select--year.browser-default {
+		width: 30%;
+	}
+}

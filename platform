@@ -1,0 +1,67 @@
+#!/bin/bash
+
+cmd=$1
+app=$2
+
+if [ -z "$cmd" ]; then
+	cmd="start"
+fi
+
+if [ -z "$app" ]; then
+	app="dev"
+fi
+
+if [ $cmd = "install" ]; then
+	sh docker/install
+fi
+
+if [ $cmd = "start" ]; then
+	sh docker/start $app
+fi
+
+if [ $cmd = "restart" ]; then
+	sh docker/restart $app
+fi
+
+if [ $cmd = "rebuild" ]; then
+	sh docker/rebuild
+fi
+
+if [ $cmd = "stop" ]; then
+	sh docker/stop
+fi
+
+if [ $cmd = "test" ]; then
+	sh docker/test $app
+fi
+
+# Deploy commands
+#
+if [ $cmd = "deploy" ]; then
+	sh docker/deploy/images $@
+fi
+
+if [ $cmd = "deploy-start" ]; then
+	sh docker/deploy/start
+fi
+
+if [ $cmd = "deploy-restart" ]; then
+	sh docker/deploy/restart $app
+fi
+
+if [ $cmd = "deploy-rebuild" ]; then
+	sh docker/deploy/rebuild
+fi
+
+if [ $cmd = "deploy-stop" ]; then
+	sh docker/deploy/stop
+fi
+
+
+if [ "$cmd" = "-h" ] || [ "$cmd" = "help" ]; then
+	echo
+	echo "Usage: ./`basename $0` { install | start | restart | rebuild | stop | test } { dev | prod | jenkins }"
+	echo
+	echo "Deploy: ./`basename $0` { deploy | deploy-start | deploy-restart | deploy-rebuild | deploy-stop } { dev | prod | jenkins }"
+	echo
+fi

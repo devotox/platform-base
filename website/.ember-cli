@@ -1,0 +1,15 @@
+{
+	"port": 9000,
+
+	"skip-npm": true,
+
+	"skip-bower": true,
+
+	"live-reload": true,
+
+	"live-reload-port": 39000,
+
+	"proxy-live-reload": {
+		"host": "platform.local.com"
+	}
+}

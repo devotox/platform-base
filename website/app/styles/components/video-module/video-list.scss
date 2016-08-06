@@ -1,0 +1,23 @@
+#video-module-container {
+	#video-list {
+		.video-link {
+			margin-bottom: 2em;
+
+			img {
+				width: 200px;
+				height: 200px;
+			}
+
+			a {
+				display: block;
+			}
+			.video-name {
+				min-height: 100px;
+			}
+		}
+	}
+
+	.search-icon {
+		@include postfix-input-icon;
+	}
+}

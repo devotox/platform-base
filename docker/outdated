@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####              Check Outdated Packages          ####"
+echo "########################################################"
+echo
+
+app=$1;
+
+source docker/vars
+
+source docker/banner
+
+source docker/attach-terminal
+
+if [ -z "$app" ] || [ "$app" = "api" ]
+then
+	echo
+	echo "Check API..."
+	docker exec -it ${application_name}_api_1 npm outdated
+fi
+
+if [ -z "$app" ] || [ "$app" = "website" ]
+then
+	echo
+	echo "Check Website..."
+	docker exec -it ${application_name}_website_1 npm outdated; bower list | sort
+fi
+
+if [ -z "$app" ] || [ "$app" = "intranet" ]
+then
+	echo
+	echo "Check Intranet..."
+	docker exec -it ${application_name}_intranet_1 npm outdated; bower list | sort
+fi

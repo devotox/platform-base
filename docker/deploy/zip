@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# This script is used to deploy app to elasticbeanstalk
+
+echo "########################################################"
+echo "####           Create Docker Application Zip        ####"
+echo "########################################################"
+echo
+
+source docker/deploy/details/vars
+
+source docker/deploy/details/prompt
+
+echo
+# Copy the appropriate Dockerrun to root
+echo "Zipping $application_type..."
+cp -fv "aws/$application_type.aws.json" "Dockerrun.aws.json"
+
+echo
+# Remove xattr created by Mac OS
+echo "Clean out all xattr"
+xattr -d com.apple.quarantine {,**/}*
+
+echo
+# Zip up application with created Dockerrun file
+echo  "Create zip file"
+zip "../deploy-$version-$timestamp.zip" -r * .[^.]* --exclude "*.DS_Store" --exclude ".git/*" --exclude ".elasticbeanstalk/*" --exclude "jenkins/*"
+
+# Remove the Dockerrun json copied here
+rm -rfv "Dockerrun.aws.json"

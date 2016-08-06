@@ -1,0 +1,19 @@
+{{!
+	Ember dropdown-list component template
+	See http://emberjs.com/deprecations/v1.x/#toc_ember-select
+	 20 November 2015
+}}
+
+<select multiple={{multiple}} class="{{class}}">
+	{{#each contentCopy as |item index|}}
+		{{#if multiple}}
+		<option value="{{lookup item valuePath}}" data-index="{{index}}" selected={{contains (lookup item valuePath) value}}>
+			{{lookup item labelPath}}
+		</option>
+		{{else}}
+		<option value="{{lookup item valuePath}}" data-index="{{index}}" selected={{eq value (lookup item valuePath)}}>
+			{{lookup item labelPath}}
+		</option>
+		{{/if}}
+	{{/each}}
+</select>

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# This script is used to retrieve details for deployment
+
+echo "########################################################"
+echo "####          Retrieve Docker Deploy Details        ####"
+echo "########################################################"
+echo
+
+# If not entered in command line ask for details
+#########################################################################################################################
+
+if [ -z "$version" ]; then
+	read -p "Version: " version
+fi
+
+if [ -z "$description" ]; then
+	read -p "Description: " description
+fi
+
+#########################################################################################################################
+
+if [ -z "$deploy_target" ]; then
+	read -p "Deploy Target [ platform-development | platform-testing | platform-intranet | platform-api | platform-jenkins ]: " deploy_target
+fi
+
+if [[ " ${targets[@]} " =~ " ${deploy_target} " ]]; then
+	echo "Deploy Target Set ($deploy_target)..."
+else
+	echo "Incorrect Deploy Target. Select one of the choices: ${targets[@]}"
+	exit 1;
+fi
+
+#########################################################################################################################
+
+if [ -z "$application_type" ]; then
+	read -p "Application To Deploy [ dev | prod | website | intranet | api | jenkins ]: " application_type
+fi
+
+if [[ " ${types[@]} " =~ " ${application_type} " ]]; then
+	echo "Application Type Set ($application_type)..."
+else
+	echo "Incorrect Application Type. Select one of the choices: ${types[@]}"
+	exit 1;
+fi
+
+#########################################################################################################################

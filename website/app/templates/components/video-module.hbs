@@ -1,0 +1,36 @@
+<section id="video-module-container" class="base-video">
+
+	<!-- SEARCH -->
+	<div class="row control-group {{unless showSearch "hide"}}">
+		<div class="input-field col s12">
+			<i class="right search-icon {{t "assets.pages.search.icon.class"}}"></i>
+			{{input value=search id="search-input" type="text" class="input-md validate"}}
+			<label for="search-input" class="{{if search 'active'}}">{{t "pages.search.label.text"}}</label>
+		</div>
+	</div>
+
+	<!-- VIDEO -->
+	<div class="row {{unless current "hide"}} center">
+		<div>{{current.name}}</div>
+		<div class="video-container">
+			<video class="responsive-video col s12" preload="auto" controls>
+				<source src={{current.source}}>
+			</video>
+		</div>
+	</div>
+
+	<!-- VIDEO LIST -->
+	<h3>{{t "components.video-module.list.header"}}</h3>
+	<ul id="video-list" class="row {{unless showList "hide"}}">
+	{{#each videos as |video|}}
+		<li class="video-link col s6 m4 l2 {{if video.hide "hide"}}">
+			{{#link-to "videos.video" video.id (query-params local=local q=search) class="center"}}
+				<div><img src="{{video.thumbnail}}" class="responsive-img"/></div>
+				<div class="video-name">{{video.name}}</div>
+			{{/link-to}}
+		</li>
+	{{else}}
+		<li>{{t "components.video-module.list.no-videos-available"}}</li>
+	{{/each}}
+	</ul>
+</section>

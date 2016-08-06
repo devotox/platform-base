@@ -1,0 +1,15 @@
+[data-page="licenses"] {	
+	@include base-margin();
+
+	@include base-content();
+
+	h4 {
+		padding-bottom: 0;
+		display: inline-block;
+		border-bottom: solid 1px $dark;
+	}
+
+	pre {
+		padding-bottom: 3em;
+	}
+}

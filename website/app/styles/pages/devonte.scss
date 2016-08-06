@@ -1,0 +1,92 @@
+[data-page="devonte"] {
+	@include base-margin();
+
+	@include base-content();
+	
+	.invisible {
+		visibility: hidden;
+	}
+	.tagline {
+		p {
+			font-style: italic;
+			&.inline {
+				display: inline;
+			}
+		}
+	}
+
+	.contact-card, .external-contact-card {
+		margin-top: 2em;
+		margin-bottom: 0;
+		padding-top: 2em;
+		font-size: 0.8em;
+		border-top: solid 1px $light-grey;
+		
+		li {
+			padding-bottom: 0.5em;
+
+			span {
+				$sm-width: 30%;
+				$md-width: 40%;
+
+				display: inline-block;
+
+				&:first-child {
+					width: $sm-width;
+
+					@media only screen and (min-width: $screen-md-min) {
+						width: $md-width;
+					}
+				}
+				&:last-child {
+					font-style: italic;
+					font-family: initial;
+					width: 98% - $sm-width;
+
+					@media only screen and (min-width: $screen-md-min) {
+						width: 98% - $md-width;
+					}
+				}
+			}
+		}
+	}
+		
+	.personal-projects {
+		h2 {
+			.in-progress {
+				margin-left: 0.2em;
+				display: inline-block;
+				vertical-align: middle;
+
+				span, i {
+					display: block;
+					font-size: 10px;
+				}
+				i {
+					top: 12px;
+					font-size: 18px;
+					position: relative;
+				}
+			}
+		}
+
+		.sub-header {
+			font-weight: bold;
+			font-style: italic;
+		}
+		ul li {
+			margin-left: 1em;
+			padding-left: 2em;
+			margin-bottom: 1em;
+			list-style: disc outside none;
+		}
+	}
+
+	.job-specific {
+		.thank-you {
+			margin-top: 5em;
+			font-weight: bold;
+			font-style: italic;
+		}
+	}
+}

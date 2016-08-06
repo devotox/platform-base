@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Docker deploy details variables
+
+# Retrieve from command line
+version=$1
+description=$2
+deploy_target=$3
+application_type=$4
+
+unix_timestamp="$(date +%s)"
+gitignore_path="$PWD/.gitignore"
+deployment_branch="deployment-$unix_timestamp"
+timestamp="$(date +'%d-%m-%Y')-$(date +'%H.%M.%S')"
+
+current_branch="$(git symbolic-ref --short -q HEAD)"
+types=("dev" "prod" "intranet" "website" "jenkins" "api")
+targets=("platform-development" "platform-testing" "platform-intranet" "platform-api" "platform-jenkins")

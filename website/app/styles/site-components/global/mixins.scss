@@ -1,0 +1,167 @@
+@mixin vendor-prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-o-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin vendor-prefix-rev($name, $argument) {
+	#{$name}: -webkit-#{$argument};
+	#{$name}: -moz-#{$argument};
+	#{$name}: -ms-#{$argument};
+	#{$name}: -o-#{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} { @content; }
+	@-khtml-keyframes #{$name} { @content; }
+	@-moz-keyframes #{$name} { @content; }
+	@-ms-keyframes #{$name} { @content; }
+	@-o-keyframes #{$name} { @content; }
+	@keyframes #{$name} { @content; }
+}
+
+@mixin flex-box-display {
+	@include vendor-prefix-rev(display, flexbox);
+	@include vendor-prefix-rev(display, box );
+	@include vendor-prefix-rev(display, flex);
+
+	@include vendor-prefix(flexbox-wrap, 1 0 auto);
+	@include vendor-prefix(box-wrap, 1 0 auto );
+	@include vendor-prefix(flex-wrap, 1 0 auto);
+
+	@include vendor-prefix(box-flex, 1 0 auto);
+	@include vendor-prefix(flex, 1 0 auto);
+}
+
+@mixin center-align {
+	text-align: center;
+}
+
+@mixin vertical-align {
+	@include vendor-prefix(transform, translateY(-50%));
+	position: relative;
+	top: 50%;
+}
+
+@mixin redraw {
+	@include vendor-prefix(transform, translateZ(0));
+}
+
+@mixin center-align-flex {
+	height: inherit; // For IE
+	min-height: inherit;
+	@include flex-box-display;
+	@include vendor-prefix(justify-content, center);
+}
+
+@mixin vertical-align-flex {
+	height: inherit; // For IE
+	min-height: inherit;
+	@include flex-box-display;
+	@include vendor-prefix(box-align, center);
+	@include vendor-prefix(flex-align, center);
+	@include vendor-prefix(align-items, center);
+	@include vendor-prefix(justify-content, center);
+}
+
+@mixin opacity($opacity) {
+	filter: alpha(opacity=$opacity-ie); //IE8
+	$opacity-ie: $opacity * 100;
+	opacity: $opacity;
+}
+
+@mixin disable-transition {
+	@include vendor-prefix(transition, none !important);
+}
+
+@mixin border-radius($radius) {
+	@include vendor-prefix(border-radius, $radius);
+}
+
+@mixin font-awesome {
+	line-height: 1;
+	font-family: FontAwesome;
+}
+
+@mixin main-background-transition($color-from: $primary-color, $color-to: $secondary-color) {
+	@include vendor-prefix(transition, background-color $transition-delay ease);
+	&:hover { background-color: $color-to; }
+	background-color: $color-from;
+	will-change: background-color;
+
+}
+
+@mixin postfix-input-icon ($hover-color: $primary-color) {
+	right: 0;
+	top: 0.5em;
+	z-index: 100;
+	cursor: pointer;
+	font-size: 1.4em;
+	position: absolute;
+	margin-right: 0.75rem;
+	&:hover { color: $hover-color; }
+}
+
+@mixin background-cover ($image) {
+	&::before {
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		content: ' ';
+		position: fixed; // instead of background-attachment
+		background-size: cover;
+		will-change: transform; // creates a new paint layer
+		background: url($image) no-repeat center center;
+	}
+}
+
+//Returns a media queries which scales the units relative to the xs and lg values
+@mixin scale-pixels($property, $xs, $lg){
+	$multiplier: round(($lg - $xs) / 4);
+
+	#{$property}: $xs;
+
+	@media (min-width: $screen-sm-min) {
+		#{$property}: $xs + $multiplier;
+	}
+
+	@media (min-width: $screen-md-min) {
+		#{$property}: $xs + ($multiplier * 2);
+	}
+
+	@media (min-width: $screen-lg-min) {
+		#{$property}: $lg;
+	}
+}
+
+//clearfix
+@mixin clearfix {
+	&:after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+}
+
+@mixin placeholder {
+	@include optional-at-root('::-webkit-input-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root(':-moz-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root('::-moz-placeholder') {
+		@content;
+	}
+
+	@include optional-at-root(':-ms-input-placeholder') {
+		@content;
+	}
+}

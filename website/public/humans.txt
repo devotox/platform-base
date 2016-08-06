@@ -1,0 +1,40 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Author: Devonte Emokpae
+
+/* THANKS */
+  Names (& URL):
+
+/* SITE */
+  Standards: HTML5, CSS3, ES6
+  Components: Ember, Jquery, Lodash, Bluebird
+  Software: Javascript, NodeJS, EmberJS
+
+
+
+							   -o/-
+							   +oo//-
+							  :ooo+//:
+							 -ooooo///-
+							 /oooooo//:
+							:ooooooo+//-
+						   -+oooooooo///-
+		   -://////////////+oooooooooo++////////////::
+			:+ooooooooooooooooooooooooooooooooooooo+:::-
+			  -/+ooooooooooooooooooooooooooooooo+/::////:-
+				-:+oooooooooooooooooooooooooooo/::///////:-
+				  --/+ooooooooooooooooooooo+::://////:-
+					 -:+ooooooooooooooooo+:://////:--
+					   /ooooooooooooooooo+//////:-
+					  -ooooooooooooooooooo////-
+					  /ooooooooo+oooooooooo//:
+					 :ooooooo+/::/+oooooooo+//-
+					-oooooo/::///////+oooooo///-
+					/ooo+::://////:---:/+oooo//:
+				   -o+/::///////:-      -:/+o+//-
+				   :-:///////:-            -:/://
+					 -////:-                 --//:
+					   --                       -:

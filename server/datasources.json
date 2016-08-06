@@ -1,0 +1,47 @@
+{
+  "db": {
+    "name": "db",
+    "file": "db.json",
+    "connector": "memory"
+  },
+  "redis": {
+    "host": "redis",
+    "port": "6379",
+    "name": "redis",
+    "connector": "redis"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.mailgun.org",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "postmaster@sandboxef06791d8a934889bfd3233362d2a26d.mailgun.org",
+          "pass": "bd08dcfb6efeed1f88f1c12ddfbcfede"
+        }
+      }
+    ]
+  },
+  "mailgun": {
+    "name": "mailgun",
+    "connector": "loopback-connector-mailgun",
+    "apikey": "key-93cdf32f21a28081b3e8701fb2367e39",
+    "domain": "sandboxef06791d8a934889bfd3233362d2a26d.mailgun.org"
+  },
+  "platform": {
+    "host": "database",
+    "port": 5432,
+    "database": "platform",
+    "username": "platform_admin",
+    "password": "platform",
+    "name": "platform",
+    "connector": "postgresql"
+  }
+}

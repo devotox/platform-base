@@ -1,0 +1,51 @@
+<section id="chat-module-container" class="base-chat">
+
+	<fieldset class="container chat-form-wrapper">
+		
+		<div class="chat-header row valign-wrapper">
+			<h5 class="title left-align col s8 m8 l10 valign">
+				<i class="fa fa-comments-o"></i>
+				{{t "components.chat-module.title"}}
+			</h5>
+
+			<div class="control-group right-align col s4 m4 l2">
+				<div class="input-field">
+					{{input value=username type="text" id="chat-module-username-input" class="validate" required="true" }}
+					<label for="chat-module-message-input" class="{{if username 'active'}}">
+						{{t "components.chat-module.username-input.label"}}
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="chat-messages-container">
+			<ul id="chat-module-messages-list">
+				{{#each messages as |message|}}
+					<li class="{{message.class}}">
+						<span class="user">{{message.user}}</span>
+						<span class="seperator">:</span>
+						<span class="text">{{message.text}}</span>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+
+		<form class="form-horizontal chat-message-form" {{action "send-message" on="submit"}}>
+			<div class="row control-group valign-wrapper">
+				<div class="input-field col s12 m9 l10">
+					{{input value=message type="text" id="chat-module-message-input" class="validate" required="true" }}
+					<label for="chat-module-message-input" class="{{if message 'active'}}">
+						{{t "components.chat-module.message-input.label"}}
+					</label>
+				</div>
+				<div class="chat-send-button main-button valign col s12 m3 l2 hide-on-small-only">
+					<button type="submit" class="chat-send btn valign right">
+						<span>{{t "components.chat-module.send-button.text"}}</span>
+						<i class="fa fa-paper-plane"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+
+	</fieldset>
+</section>

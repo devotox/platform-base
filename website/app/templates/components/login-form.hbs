@@ -1,0 +1,60 @@
+<section id="login-form-container" class="base-form">
+	<fieldset class="container login-form-wrapper">
+
+		<h5 class="title center-align">{{t "components.forms.login-form.title"}}</h5>
+		<form class="form-horizontal" {{action "login" on="submit"}}>
+
+			<div class="row control-group">
+				<div class="input-field col s12">
+					<i class="fa {{t "assets.components.forms.login-form.inputs.username.icon"}} prefix"></i>
+					{{input value=username type="text" id="login-form-username" class="validate" key-up="reset"}}
+					<label for="login-form-username">
+						{{t "components.forms.login-form.inputs.username.label"}}
+					</label>
+				</div>
+			</div>
+
+			<div class="row control-group">
+				<div class="input-field col s12">
+					<i class="fa {{t "assets.components.forms.login-form.inputs.password.icon"}} prefix"></i>
+					{{input value=password type="password" id="login-form-password" class="validate" key-up="reset"}}
+					<label for="login-form-password">
+						{{t "components.forms.login-form.inputs.password.label"}}
+					</label>
+				</div>
+			</div>
+
+			<div class="row valign-wrapper">
+				<div class="forgot-details-link secondary-link valign col s6">
+					{{#link-to 'forgot-details'}}
+						{{t "components.forms.login-form.links.forgot-password.text"}}
+					{{/link-to}}
+				</div>
+
+				<div class="login-button main-button valign col s6">
+					<button type="submit" class="login btn valign right" disabled={{isProcessing}}>
+						{{t "components.forms.login-form.buttons.login.text"}}
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<div class="error-container center-align red-text text-lighten-2">{{error}}</div>
+	</fieldset>
+
+	{{#link-to 'sign-up' class="sign-up-link main-link"}}
+	<section class="container main-link-inner sign-up-link-inner">
+		<div class="valign-wrapper">
+			<div class="main-link-text-wrapper sign-up-text-wrapper valign center-align">
+				<span class="main-link-text-1 sign-up-text-1">
+					{{t "components.forms.login-form.links.sign-up.text.one"}}
+				</span>
+				<span class="main-link-text-2 sign-up-text-2">
+					{{t "components.forms.login-form.links.sign-up.text.two"}}
+				</span>
+				<i class="fa {{t "assets.components.forms.login-form.links.sign-up.icon"}}"></i>
+			</div>
+		</div>
+	</section>
+	{{/link-to}}
+</section>

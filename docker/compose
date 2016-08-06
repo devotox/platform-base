@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####                Compose Environment             ####"
+echo "########################################################"
+echo
+
+app=$1
+
+if [ -z "$app" ]; then
+	app="dev"
+fi
+
+if [ -z "$machine_name" ]; then
+	source docker/vars
+fi
+
+echo
+echo "Build Docker Images..."
+docker-compose -p $application_name -f docker-compose/$app.yml build --pull
+
+echo
+echo "Start Docker Images..."
+sh docker/bin/osx-dev -r "docker-compose -p $application_name -f docker-compose/$app.yml up --abort-on-container-exit" -i ".rsyncignore" -s "./"

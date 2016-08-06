@@ -1,0 +1,5 @@
+[data-page="press"] {
+	@include base-margin();
+
+	@include base-content();
+}

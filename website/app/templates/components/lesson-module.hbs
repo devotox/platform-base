@@ -1,0 +1,32 @@
+<div id="lesson-module-container" class="row light">
+	<div class="col s12 m10 offset-m1 {{lessonType}}">
+
+		{{partial 'components/lesson-module/progress-bar'}}
+
+		{{#if (eq lessonType "text") }}
+			{{partial 'components/lesson-module/types/text'}}
+		{{/if}}
+
+		{{#if (eq lessonType "blank") }}
+			{{partial 'components/lesson-module/types/blank'}}
+		{{/if}}
+
+		{{#if (eq lessonType "image") }}
+			{{partial 'components/lesson-module/types/image'}}
+		{{/if}}
+
+		{{#if (eq lessonType "sentence") }}
+			{{partial 'components/lesson-module/types/sentence'}}
+		{{/if}}
+
+		<!-- {{#if (eq lessonType "video") }}
+			{{partial 'components/lesson-module/types/video'}}
+		{{/if}}
+
+		{{#if (eq lessonType "game") }}
+			{{partial 'components/lesson-module/types/game'}}
+		{{/if}} -->
+
+		{{partial 'components/lesson-module/check-button'}}
+	</div>
+</div>

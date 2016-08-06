@@ -1,0 +1,56 @@
+<section id="reset-form-container" class="base-form">
+	<fieldset class="container reset-form-wrapper">
+		<h5 class="title center-align">{{t "components.forms.reset-form.title"}}</h5>
+		<form class="form-horizontal" {{action "reset-submit" on="submit"}}>
+			{{#if (eq stage 2)}}
+			<div class="row control-group">
+				<div class="input-field col s12">
+					<i class="fa {{t "assets.components.forms.reset-form.inputs.password.icon"}} prefix"></i>
+					{{input value=password type="password" id="reset-form-password" class="validate" key-up="reset"}}
+					<label for="reset-form-password">
+						{{t "components.forms.reset-form.inputs.password.label"}}
+					</label>
+				</div>
+			</div>
+
+			{{else}}
+			<div class="row control-group">
+				<div class="input-field col s12">
+					<i class="fa {{t "assets.components.forms.reset-form.inputs.email.icon"}} prefix"></i>
+					{{input value=email type="text" id="reset-form-email" class="validate" key-up="reset"}}
+					<label for="reset-form-email">
+						{{t "components.forms.reset-form.inputs.email.label"}}
+					</label>
+				</div>
+			</div>
+			{{/if}}
+
+			<div class="row valign-wrapper">
+				<div class="reset-button main-button valign col s12">
+					<button type="submit" class="main-button reset btn valign right" disabled={{isProcessing}}>
+						{{t "components.forms.reset-form.buttons.reset.text"}}
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<div class="error-container center-align red-text text-lighten-2">{{error}}</div>
+		<div class="success-container center-align green-text text-lighten-2">{{message}}</div>
+	</fieldset>
+
+	{{#link-to 'sign-up' class="sign-up-link main-link"}}
+	<section class="container main-link-inner sign-up-link-inner">
+		<div class="valign-wrapper">
+			<div class="main-link-text-wrapper sign-up-text-wrapper valign center-align">
+				<span class="main-link-text-1 sign-up-text-1">
+					{{t "components.forms.reset-form.links.sign-up.text.one"}}
+				</span>
+				<span class="main-link-text-2 sign-up-text-2">
+					{{t "components.forms.reset-form.links.sign-up.text.two"}}
+				</span>
+				<i class="fa {{t "assets.components.forms.reset-form.links.sign-up.icon"}}"></i>
+			</div>
+		</div>
+	</section>
+	{{/link-to}}
+</section>

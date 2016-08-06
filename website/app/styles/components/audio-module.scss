@@ -1,0 +1,28 @@
+.audio-module-action {
+
+	i {
+		font-size: 1.4em;
+	}
+	&.play-button, &.record-button, &.none-button {
+		width: 100% !important;
+		position: relative;
+		padding: 0.5em 0;
+		cursor: pointer;
+
+		&:hover {
+			color: $green;
+		}
+		&.active {
+			color: $red;
+		}
+	}
+
+	&.record-button {
+		border-left: dashed 1px $dark;
+	}
+	&.none-button {
+		&:hover {
+			color: $red;
+		}
+	}
+}

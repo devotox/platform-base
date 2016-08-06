@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Docker scripts variables
+
+openvpn_data="openvpn_data"
+
+application_name="platform"
+
+machine_name="$application_name-dev"
+
+vpn_url="vpn.$application_name.local.com"

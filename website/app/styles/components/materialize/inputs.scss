@@ -1,0 +1,49 @@
+/* Custom Stylesheet */
+/**
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By Devonte
+* Inputs
+*/
+
+.input-field {
+	label, option[disabled],
+	.select-dropdown li.disabled {
+		color: $grey;
+	}
+	.prefix.active {
+		color: $primary-color;
+	}
+
+	textarea,
+	input[type=url],
+	input[type=tel],
+	input[type=time],
+	input[type=date],
+	input[type=text],
+	input[type=email],
+	input[type=number],
+	input[type=search],
+	input[type=password],
+	input[type=datetime-local] {
+
+		&:focus {
+			border-bottom: 1px solid $primary-color;
+			box-shadow: 0 1px 0 0 $primary-color;
+			+ label {
+				color: $primary-color;
+			}
+		}
+
+		&.valid {
+			border-bottom: 1px solid $primary-color;
+			box-shadow: 0 1px 0 0 $primary-color;
+		}
+
+		&.invalid {
+			border-bottom: 1px solid $primary-color;
+			box-shadow: 0 1px 0 0 $primary-color;
+		}
+	}
+}

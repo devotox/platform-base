@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####              Update Docker Dev Hosts           ####"
+echo "########################################################"
+echo
+
+if [ -z "$machine_name" ]; then
+	source docker/vars
+fi
+
+source docker/functions
+
+echo
+echo "Start Machine..."
+docker-machine start $machine_name
+
+echo
+echo "Attach Machine to Terminal..."
+eval $(docker-machine env --shell bash $machine_name)
+
+echo
+# Get Current IP
+echo "Retrieving Current IP Address..."
+ip=$(cat /etc/hosts | grep platform.local.com | sed -n '1p' | awk '{ print $1 }')
+echo "Current IP: $ip"
+
+echo
+# Get IP address of docker machine
+echo "Get Current Machine IP Address..."
+
+if [ -x "$(command -v docker-machine)" ]; then
+	machine_ip=$(docker-machine ip $machine_name)
+else
+	machine_ip=$(curl --retry 5 --connect-timeout 3 -s 169.254.169.254/latest/meta-data/local-ipv4)
+fi
+
+echo "Machine IP: $machine_ip"
+
+echo
+if [ "$1" = "force" ]; then
+	echo "Forcing IP address update..."
+	update_hosts
+elif [ "$ip" = "$machine_ip" ]; then
+	echo "IP Addresses are matching. Exiting..."
+else
+	echo "IP Addresses differ. Updating..."
+	update_hosts
+fi

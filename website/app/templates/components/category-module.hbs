@@ -1,0 +1,49 @@
+<div class="category-module row center light {{if valign 'vertical'}}">
+{{#each items as |item|}}
+	{{#if (and (not-eq item.language_slug baseLanguage) (or item.permissions.view show_items))}}
+	<div data-id={{item.id}} data-slug={{item.language_slug}}
+		class="category-module-item-wrapper col s12 m6 l4"
+		{{action "itemClicked" item on="click"}}>
+
+		<div class="category-module-item">
+			<div class="category-module-item-data">
+				{{#if chevron}}
+					<i class="fa fa-chevron-right category-module-chevron"></i>
+				{{/if}}
+				<div>
+					{{#if item.image}}<div><img src="{{item.image}}" alt="{{item.description}}" /></div>{{/if}}
+
+					{{content-editable readonly=(not (and item.permissions.edit editMode)) disabled=(not (and item.permissions.edit editMode))
+						value=item.label placeholder="Enter Label" type="text" tagName="div" class=editableClass
+						key-up=(action "itemEdited" item bubbles=false) enter="endEdit" click="null"
+						spellcheck=true allowNewlines=false maxlength=editableMaxLength}}
+
+					{{#unless valign}}
+					{{content-editable readonly=(not (and item.permissions.edit editMode)) disabled=(not (and item.permissions.edit editMode))
+						value=item.description placeholder="Enter Description" type="text" tagName="div" class=editableClass
+						key-up=(action "itemEdited" item bubbles=false) enter="endEdit" click="null"
+						spellcheck=true allowNewlines=false maxlength=editableMaxLength}}
+					{{/unless}}
+				</div>
+			</div>
+
+			{{#if show_audio_module}}
+			<div class="category-module-actions-wrapper">
+				{{#if item.permissions.play}}
+					{{audio-module item=item type="play"}}
+				{{/if}}
+
+				{{#if item.permissions.record}}
+					{{audio-module item=item type="record" audio-recorded="audioRecorded"}}
+				{{/if}}
+
+				{{#if (not (or item.permissions.play item.permissions.record))}}
+					{{audio-module}}
+				{{/if}}
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	{{/if}}
+{{/each}}
+</div>

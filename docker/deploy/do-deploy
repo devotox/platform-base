@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# This script is used to deploy app to elasticbeanstalk
+echo
+echo "########################################################"
+echo "####                Docker Deployment               ####"
+echo "########################################################"
+echo
+
+source docker/deploy/details/vars
+
+source docker/deploy/details/prompt
+
+# Create deployment branch
+git checkout -b $deployment_branch
+
+# Make sure deployment branch is exact copy of upstream master
+# git fetch upstream
+# git reset --hard upstream/master
+# echo
+
+echo
+# Remove .gitignore lines
+sed -i -e "s|.ebextensions/settings.config|<settings-config>|g" $gitignore_path
+sed -i -e "s|.ebextensions/environment.config|<env-config>|g" $gitignore_path
+sed -i -e "s|database/sslcert/\*|<database-sslcert>|g" $gitignore_path
+sed -i -e "s|Dockerrun.aws.json|<docker-aws-config>|g" $gitignore_path
+sed -i -e "s|api/tests/config.js|<api-test-config>|g" $gitignore_path
+sed -i -e "s|secrets.env|<secrets-env>|g" $gitignore_path
+sed -i -e "s|sslcert/\*|<sslcert>|g" $gitignore_path
+
+echo
+# Copy the appropriate Dockerrun to root
+echo "Deploying $application_type..."
+cp -fv "aws/$application_type.aws.json" "Dockerrun.aws.json"
+
+echo
+# Remove xattr created by Mac OS
+echo "Clean out all xattr"
+xattr -d com.apple.quarantine {,**/}*
+
+# Create application version
+git add --all .
+git commit -am "$description" --allow-empty
+# git tag -a "$version" -m "$description"
+
+echo
+# Deploy application version
+echo "Deploying to $deploy_target..."
+eb use "$deploy_target"
+eb init && eb deploy -l "$version" -m "$description" --timeout 1200
+echo
+
+# Return to current branch
+git checkout $current_branch
+git merge $deployment_branch
+git reset --soft HEAD~1
+
+# Remove the Dockerrun json copied here
+rm -rfv "Dockerrun.aws.json"
+
+# Add .gitignore lines back
+sed -i -e "s|<settings-config>|.ebextensions/settings.config|g" $gitignore_path
+sed -i -e "s|<env-config>|.ebextensions/environment.config|g" $gitignore_path
+sed -i -e "s|<database-sslcert>|database/sslcert/\*|g" $gitignore_path
+sed -i -e "s|<docker-aws-config>|Dockerrun.aws.json|g" $gitignore_path
+sed -i -e "s|<api-test-config>|api/tests/config.js|g" $gitignore_path
+sed -i -e "s|<secrets-env>|secrets.env|g" $gitignore_path
+sed -i -e "s|<sslcert>|sslcert/\*|g" $gitignore_path
+
+# Revert recently added files to untracked
+git reset HEAD .ebextensions/environment.config
+git reset HEAD .ebextensions/settings.config
+git reset HEAD docker/deploy/do-deploy
+git reset HEAD shared/env/secrets.env
+git reset HEAD database/sslcert
+git reset HEAD Dockerrun.aws.json
+git reset HEAD .gitignore
+git reset HEAD sslcert
+
+# Clean up deployment branch
+git branch -D $deployment_branch
+# git tag -d $version

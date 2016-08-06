@@ -1,0 +1,19 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/api/explorer"
+  },
+  "loopback-component-jsonapi": {
+    "enable": true,
+    "foreignKeys": true,
+    "handleErrors": true,
+    "restApiRoot": "/api",
+    "hideIrrelevantMethods": true,
+    "exclude": [],
+    "include": [
+      {
+        "methods": "slug"
+      }
+    ],
+    "attributes": {}
+  }
+}

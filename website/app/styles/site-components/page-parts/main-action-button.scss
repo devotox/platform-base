@@ -1,0 +1,25 @@
+
+#main-action-button {
+
+	right: 25px;
+	bottom: 45px;
+
+	.fixed-action-btn {
+		ul {
+			display: none;
+			i.fa {
+				font-size: 1.2em;
+			}
+		}
+
+		&.active {
+			ul {
+				display: block;
+			}
+		}
+	}
+
+	@media only screen and (min-width: $screen-md-min) {
+		display: none;
+	}
+}
