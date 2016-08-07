@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "アカウント ログイン",
 				"inputs": {
-					"email": {
-						"label": "電子メール アドレス"
+					"username": {
+						"label": "ユーザー名/メールアドレス"
 					},
 					"password": {
 						"label": "パスワード："
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "電子メール アドレス"
+					},
+					"username": {
+						"label": "ユーザ名"
 					},
 					"password": {
 						"label": "パスワード："

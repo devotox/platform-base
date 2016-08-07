@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "Cuenta Entrar",
 				"inputs": {
-					"email": {
-						"label": "Dirección de correo electrónico"
+					"username": {
+						"label": "Nombre de usuario / Dirección de correo electrónico"
 					},
 					"password": {
 						"label": "Contrasena"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "Dirección de correo electrónico"
+					},
+					"username": {
+						"label": "Nombre de usuario"
 					},
 					"password": {
 						"label": "Contrasena"

@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "Kontos Anmeldens",
 				"inputs": {
-					"email": {
-						"label": "Emailadresse"
+					"username": {
+						"label": "Benutzername / Emailadresse"
 					},
 					"password": {
 						"label": "Passwort"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "Emailadresse"
+					},
+					"username": {
+						"label": "Benutzername"
 					},
 					"password": {
 						"label": "Passwort"

@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "KOSTENPLAATS Werken",
 				"inputs": {
-					"email": {
-						"label": "E-mail Adres"
+					"username": {
+						"label": "gebruikersnaam / E-mail Adres"
 					},
 					"password": {
 						"label": "Wachtwoord"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "E-mail Adres"
+					},
+					"username": {
+						"label": "gebruikersnaam"
 					},
 					"password": {
 						"label": "Wachtwoord"

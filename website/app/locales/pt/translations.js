@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "Conta Entrara",
 				"inputs": {
-					"email": {
-						"label": "E-mail Abordem"
+					"username": {
+						"label": "nome de usuário / E-mail Abordem"
 					},
 					"password": {
 						"label": "Senha"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "E-mail Abordem"
+					},
+					"username": {
+						"label": "nome de usuário"
 					},
 					"password": {
 						"label": "Senha"

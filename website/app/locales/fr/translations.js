@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "En compte Déclara",
 				"inputs": {
-					"email": {
-						"label": "Adresse de courriel"
+					"username": {
+						"label": "Nom d'utilisateur / Adresse de courriel"
 					},
 					"password": {
 						"label": "Mot de passe"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "Adresse de courriel"
+					},
+					"username": {
+						"label": "Nom d'utilisateur"
 					},
 					"password": {
 						"label": "Mot de passe"

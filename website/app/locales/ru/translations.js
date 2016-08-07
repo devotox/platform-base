@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "Учетная запись Вход",
 				"inputs": {
-					"email": {
-						"label": "Электронная почта Адрес"
+					"username": {
+						"label": "имя пользователя / адрес электронной почты"
 					},
 					"password": {
 						"label": "Пароль"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "Электронная почта Адрес"
+					},
+					"username": {
+						"label": "имя пользователя"
 					},
 					"password": {
 						"label": "Password"

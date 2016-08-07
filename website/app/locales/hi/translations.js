@@ -62,8 +62,8 @@ export default {
 			"login-form": {
 				"title": "खाता Login",
 				"inputs": {
-					"email": {
-						"label": "ईमेल पता"
+					"username": {
+						"label": "प्रयोगकर्ता (ईमेल पता"
 					},
 					"password": {
 						"label": "पासवर्ड"
@@ -91,6 +91,9 @@ export default {
 				"inputs": {
 					"email": {
 						"label": "ईमेल पता"
+					},
+					"username": {
+						"label": "उपयोगकर्ता नाम"
 					},
 					"password": {
 						"label": "पासवर्ड"
