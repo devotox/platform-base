@@ -88,6 +88,7 @@
 	"ember-disable-proxy-controllers": "1.0.1",
 	"ember-export-application-global": "1.0.5",
 	"ember-i18n": "4.2.2",
+	"ember-leaflet": "2.2.7",
 	"ember-load-initializers": "0.5.1",
 	"ember-math-helpers": "1.2.2",
 	"ember-resolver": "2.0.3",
