@@ -27,7 +27,7 @@
   "dependencies": {
 	"model-base": "1.0.6",
 	"axios": "0.13.1",
-	"aws-sdk": "2.4.11",
+	"aws-sdk": "2.4.12",
 	"bcrypt": "0.8.7",
 	"bcryptjs": "2.3.0",
 	"binary-pack": "1.0.2",

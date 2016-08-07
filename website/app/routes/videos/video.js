@@ -9,45 +9,28 @@ export default Ember.Route.extend(ResetScroll, SetupController, {
 
 	queryParams: {
 		q: {
-			as: 'video-q',
 			refreshModel: true
 		},
 		local: {
-			as: 'video-local',
 			refreshModel: true
 		}
 	},
 
-	videosController: null,
-
-	pageRoute: 'videos',
-
-	beforeModel: function() {
-		this._super(...arguments);
-		this.set('videosController', this.controllerFor(this.get('pageRoute')));
-	},
-
-	model: function(params) {
-		let videosController = this.get('videosController');
-		videosController.set('search', '');
-
-		return this.store.findRecord('video', params.id, {
+	model(params) {
+		this.store.findRecord('video', params.id, {
 			adapterOptions: {
 				query: {
 					local: params.local
 				}
 			}
+		}).then( (model) => {
+			this.controllerFor('videos.video').set('current', model);
 		});
+
+		return this.store.query('video', { local: params.local });
 	},
-	setupController: function(controller, model) {
-
-		let videosController = this.get('videosController');
-		videosController.set('current', model);
-
-		this.store.query('video', {
-			local: videosController.get('local')
-		}).then(data => {
-			videosController.set('videos', data);
-		});
+	setupController(controller, model, transition) {
+		this._super(...arguments);
+		controller.set('search', transition.queryParams.q);
 	}
 });

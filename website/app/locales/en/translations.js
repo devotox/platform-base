@@ -37,7 +37,8 @@ export default {
 			"send-button": {
 				"text": "Send"
 			}
-		},		"forms": {
+		},
+		"forms": {
 			"reset-form": {
 				"title": "Account Reset",
 				"inputs": {
