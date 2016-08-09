@@ -92,6 +92,9 @@ module.exports = function(environment) {
 				platform: null
 			}
 		},
+		googleLeaflet: {
+			apiKey: ''
+		},
 		'ember-cli-mirage': {
 			enabled: false
 		},

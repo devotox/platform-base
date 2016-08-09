@@ -37,10 +37,12 @@
 	"pretender": "1.1.0",
 	"pace": "1.0.2",
 	"swiper": "3.3.1",
-	"leaflet": "1.0.0-rc.3"
+	"leaflet": "1.0.0-rc.3",
+	"leaflet.markercluster": "0.5.0"
   },
   "resolutions": {
 	"leaflet": "1.0.0-rc.3",
+	"leaflet.markercluster": "0.5.0",
 	"route-recognizer": "0.2.0"
   },
   "devDependencies": {
