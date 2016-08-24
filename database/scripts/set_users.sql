@@ -7,7 +7,13 @@ BEGIN
 
 	-- Set User
 	INSERT INTO "user" (username, password, email, emailVerified)
-	VALUES ('platform', '$2a$10$l6S4ufQyi8emmKCQRHULiOByvGKG5Zbfud1DQv4eJJR6HEV6tlcsW', 'admin@platform.com', true);
+	VALUES ('platform', '$2a$10$Dxe.fNvS5w2Aj1ZJX4OKmelK0dR7iGQW6LPVs1YSVcx1RyibqkSQy', 'admin@platform.com', true);
+
+	-- Delete Profile
+	DELETE FROM "profile" WHERE user_id = 1;
+
+	INSERT INTO "profile" (user_id, firstname, lastname, gender, email, image)
+	VALUES (1, 'Devonte', 'Emokpae', 'M', 'admin@platform.com', '//lh3.googleusercontent.com/-apO1C4bT-60/AAAAAAAAAAI/AAAAAAAAIJs/wzxeOUNIELE/s120-c/photo.jpg');
 
 	-- Delete Role
 	DELETE FROM "role" WHERE name = 'admin';

@@ -7,7 +7,7 @@ if [ -z "$app" ]; then
 fi
 
 if [ -z "$machine_name" ]; then
-	source docker/deploy/vars
+	source docker/vars
 fi
 
 docker-compose -p $application_name -f docker-compose/$app.yml run deploy "$@"

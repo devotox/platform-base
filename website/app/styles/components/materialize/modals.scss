@@ -1,0 +1,19 @@
+// Custom Stylesheet
+//
+// Use this file to override Materialize files so you can update
+// the core Materialize files in the future
+//
+//  Made By Devonte
+//  Material Modals
+//
+
+.modal {
+	&.bottom-sheet {
+		max-height: 100%;
+		overflow: visible;
+	}
+
+	.modal-header {
+		margin-bottom: 1em;
+	}
+}

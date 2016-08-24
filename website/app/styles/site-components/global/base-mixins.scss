@@ -38,6 +38,15 @@
 	*[hidden] { display: none; }
 }
 
+@mixin base-classes {
+
+	.overflow { overflow: visible; }
+
+	.no-pad-top { padding-top: 0 !important; }
+
+	.no-pad-bottom { padding-bottom: 0 !important; }
+}
+
 @mixin base-margin {
 	margin-top: 5em;
 	margin-bottom: 10em;

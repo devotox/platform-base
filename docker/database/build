@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####              Build Docker Database             ####"
+echo "########################################################"
+echo
+
+source docker/vars
+
+source docker/banner
+
+echo
+echo "Start Machine..."
+docker-machine start $machine_name
+
+echo
+echo "Attach Machine to Terminal..."
+eval $(docker-machine env --shell bash $machine_name)
+
+echo
+echo "Build Database..."
+docker exec -it ${application_name}_database_1 psql -U "postgres" -d "${appliation_name}" -f "build.sql"

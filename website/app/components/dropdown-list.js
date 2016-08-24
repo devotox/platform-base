@@ -6,6 +6,7 @@
 	 single item selection example
 	 {{
 		dropdown-list
+		prefix="fa-user"
 		content=myDataList
 		optionValuePath="content.id"
 		optionLabelPath="content.label"
@@ -16,6 +17,7 @@
 	multiple item selection example
 	{{
 		dropdown-list
+		prefix="fa-user"
 		content=myDataList
 		optionValuePath="content.id"
 		optionLabelPath="content.label"
@@ -31,14 +33,19 @@
 	value: object that should be updated with the selected value in the dropdown list. The actual value set is dependent on the optionValuePath
 	multiple: boolean value denoting whether multiple items in the list can be selected. Default is false.
 	class: string that should be used as class name for the select element
+	prefix: Optional font awesome class to create a prefix icon to select field
 	prompt: optional string to display on the top of the dropdown list when nothing is selected
 	action: name of function to invoke when the selected option changes
  */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	prefix: null,
+
 	content: null,
+
 	selectedValue: null,
+
 	setAttrs: function(){
 		let content = (this.get('content') || []).slice();
 

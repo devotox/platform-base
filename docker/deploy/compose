@@ -13,7 +13,7 @@ if [ -z "$app" ]; then
 fi
 
 if [ -z "$machine_name" ]; then
-	source docker/deploy/vars
+	source docker/vars
 fi
 
 echo

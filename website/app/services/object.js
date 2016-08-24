@@ -1,10 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+
+	utils: Ember.inject.service(),
+
 	sortObjects(arrayOfObjects, sortBy, reverse) {
 		let sortingFunction = null,
 			ordering = (A, B) => { return ( A > B ? 1 : (A === B ? 0 : -1) ); },
-			lower = (A, B) => { return [ this.isFunction(A.toLowerCase) ? A.toLowerCase() : A, this.isFunction(B.toLowerCase) ? B.toLowerCase() : B ]; };
+			lower = (A, B) => { return [ this.get('utils').isFunction(A.toLowerCase) ? A.toLowerCase() : A, this.get('utils').isFunction(B.toLowerCase) ? B.toLowerCase() : B ]; };
 
 		if(typeof sortBy === 'string') {
 			sortingFunction = function(a, b) {
@@ -13,7 +16,7 @@ export default Ember.Service.extend({
 				let AB = lower(A, B);
 				return ordering(AB[0], AB[1]);
 			};
-		} else if(this.isFunction(sortBy)) {
+		} else if(this.get('utils').isFunction(sortBy)) {
 			sortingFunction = function(a, b) {
 				let A = sortBy.apply(a);
 				let B = sortBy.apply(b);
@@ -24,6 +27,9 @@ export default Ember.Service.extend({
 		return arrayOfObjects.sort(function() {
 			return sortingFunction.apply(this, arguments) * (reverse ? -1 : 1);
 		});
+	},
+	toArray(object) {
+		return Object.keys(object).map( key => object[key]);
 	},
 	arrayToTree(rows) {
 		let tree = [];

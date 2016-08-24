@@ -19,8 +19,8 @@ export default Ember.Component.extend(AfterRender, {
 
 	authenticator: config['ember-simple-auth'].authenticator,
 
-	afterRenderEvent(){
-		Ember.$( this.get('element') ).materialForm();
+	afterRender(){
+		this.$().materialForm();
 	},
 
 	_destroyed() {
@@ -71,11 +71,27 @@ export default Ember.Component.extend(AfterRender, {
 	_createUser(credentials) {
 		//this.sendAction('createUser');
 		return new Promise( (resolve, reject) => {
-			return this.get('store').createRecord('user', {
+
+			let createUser = this.get('store').createRecord('user', {
 				email: credentials.email,
 				username: credentials.username,
 				password: credentials.password
-			}).save().then(resolve).catch(reject);
+			}).save();
+
+			let createProfile = createUser.then( (user) => {
+				return this.get('store').createRecord('profile', {
+					firstname: credentials.firstname || credentials.username,
+					lastname: credentials.lastname || '',
+					birthdate: credentials.birthdate,
+					gender: credentials.gender,
+					image: credentials.image || '/assets/images/default/user-image.png',
+					email: credentials.email,
+					phone: credentials.phone,
+					user: user
+				}).save();
+			});
+
+			return createProfile.then(resolve).catch(reject);
 		});
 	},
 
@@ -83,7 +99,6 @@ export default Ember.Component.extend(AfterRender, {
 		'sign-up'() {
 			this._reset(true);
 			this.set('isProcessing', true);
-			console.log('here');
 
 			let credentials = this._validate();
 			if(!credentials) { return; }

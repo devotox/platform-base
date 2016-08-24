@@ -6,9 +6,9 @@ echo "####       Enter Docker Deploy Environment          ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
-source docker/deploy/banner
+source docker/banner
 
 source docker/deploy/pre-compose
 

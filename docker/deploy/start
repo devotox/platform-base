@@ -12,9 +12,9 @@ if [ -z "$app" ]; then
 	app="deploy";
 fi
 
-source docker/deploy/vars
+source docker/vars
 
-source docker/deploy/banner
+source docker/banner
 
 source docker/deploy/pre-compose
 

@@ -6,7 +6,7 @@ echo "####             Deploy Docker Images               ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 # echo
 # echo "Pull Previous Images from ECR..."

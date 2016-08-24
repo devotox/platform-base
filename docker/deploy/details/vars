@@ -7,6 +7,7 @@ version=$1
 description=$2
 deploy_target=$3
 application_type=$4
+application_name="platform"
 
 unix_timestamp="$(date +%s)"
 gitignore_path="$PWD/.gitignore"
@@ -15,4 +16,4 @@ timestamp="$(date +'%d-%m-%Y')-$(date +'%H.%M.%S')"
 
 current_branch="$(git symbolic-ref --short -q HEAD)"
 types=("dev" "prod" "intranet" "website" "jenkins" "api")
-targets=("platform-development" "platform-testing" "platform-intranet" "platform-api" "platform-jenkins")
+targets=("${application_name}-development" "${application_name}-testing" "${application_name}-intranet" "${application_name}-api" "${application_name}-jenkins")

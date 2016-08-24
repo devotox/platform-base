@@ -6,7 +6,7 @@ echo "####          Initialize Docker Deploy AWS          ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo "Start Machine..."

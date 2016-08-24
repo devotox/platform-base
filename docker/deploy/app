@@ -6,7 +6,7 @@ echo "####              Deploy Docker Application         ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 source docker/deploy/pre-compose
 

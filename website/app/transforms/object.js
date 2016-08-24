@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
-import DS from 'ember-data';
+import Transform from 'ember-data/transform';
 
 // Allows an object Attribute type
-export default DS.Transform.extend({
-	deserialize: function(serialized) {
-		return Ember.isNone(serialized) ? {} : serialized;
+export default Transform.extend({
+	deserialize: function(value) {
+		return Ember.isNone(value) ? {} : value;
 	},
-	serialize: function(deserialized) {
-		return Ember.isNone(deserialized) ? {} : deserialized;
+	serialize: function(value) {
+		return Ember.isNone(value) ? {} : value;
 	}
 });

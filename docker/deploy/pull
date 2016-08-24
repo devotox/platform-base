@@ -6,7 +6,7 @@ echo "####              Pull Docker Images                ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 source docker/deploy/pre-compose
 

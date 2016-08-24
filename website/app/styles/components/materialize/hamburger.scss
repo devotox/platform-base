@@ -1,11 +1,10 @@
-
 // Custom Stylesheet
 //
-//  Use this file to override Materialize files so you can update
-//  the core Materialize files in the future
+// Use this file to override Materialize files so you can update
+// the core Materialize files in the future
 //
-//  Made By Devonte
-//  Material Hamburger
+// Made By Devonte
+// Material Hamburger
 //
 
 $hamburger-split: 150%;
@@ -20,7 +19,7 @@ $hamburger-split-height: 5px;
 	padding-left: 1.5em;
 
 	&.button-collapse {
-		@media only screen and (min-width: $screen-md-min){
+		@media only screen and (min-width: $screen-xs-min){
 			display: none;
 		}
 	}

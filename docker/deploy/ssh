@@ -6,9 +6,9 @@ echo "####          Elastic Beanstalk SSH Server          ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
-source docker/deploy/banner
+source docker/banner
 
 source docker/deploy/pre-compose
 

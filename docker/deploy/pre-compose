@@ -7,7 +7,7 @@ echo "########################################################"
 echo
 
 if [ -z "$machine_name" ]; then
-	source docker/deploy/vars
+	source docker/vars
 fi
 
 echo

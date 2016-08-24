@@ -6,7 +6,7 @@ echo "####             Build Deployment Images            ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo "Build Docker Images..."

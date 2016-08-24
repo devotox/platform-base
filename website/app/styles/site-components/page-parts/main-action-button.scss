@@ -1,8 +1,8 @@
 
 #main-action-button {
 
-	right: 25px;
 	bottom: 45px;
+	right: 25px;
 
 	.fixed-action-btn {
 		ul {
@@ -19,7 +19,7 @@
 		}
 	}
 
-	@media only screen and (min-width: $screen-md-min) {
+	@media only screen and (min-width: $screen-xs-min) {
 		display: none;
 	}
 }

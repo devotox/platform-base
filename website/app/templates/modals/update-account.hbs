@@ -1,0 +1,88 @@
+{{#if staticContext.account}}
+	<div class="row control-group">
+		<div class="input-field col s12" class="{{if modalContext.profile.email 'active'}}">
+			{{input value=modalContext.email type="text" id="sign-up-form-email" class="validate"}}
+			<label for="sign-up-form-email">
+				{{t "components.forms.sign-up-form.inputs.email.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.username type="text" id="sign-up-form-username" class="validate"}}
+			<label for="sign-up-form-username" class="{{if modalContext.profile.username 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.username.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.password type="password" id="sign-up-form-password" class="validate"}}
+			<label for="sign-up-form-password" class="{{if modalContext.profile.password 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.password.label"}}
+			</label>
+		</div>
+	</div>
+{{/if}}
+
+{{#if staticContext.profile}}
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.profile.firstname type="text" id="sign-up-form-firstname" class="validate"}}
+			<label for="sign-up-form-firstname" class="{{if modalContext.profile.firstname 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.firstname.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.profile.lastname type="text" id="sign-up-form-lastname" class="validate"}}
+			<label for="sign-up-form-lastname" class="{{if modalContext.profile.lastname 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.lastname.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.profile.image type="text" id="sign-up-form-image" class="validate"}}
+			<label for="sign-up-form-image" class="{{if modalContext.profile.image 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.image.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.profile.birthdate type="date" id="sign-up-form-birthdate" class="validate"}}
+			<label for="sign-up-form-birthdate" class="{{if modalContext.profile.birthdate 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.birthdate.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{input value=modalContext.profile.phone type="tel" id="sign-up-form-phone" class="validate"}}
+			<label for="sign-up-form-phone" class="{{if modalContext.profile.phone 'active'}}">
+				{{t "components.forms.sign-up-form.inputs.phone.label"}}
+			</label>
+		</div>
+	</div>
+
+	<div class="row control-group">
+		<div class="input-field col s12">
+			{{dropdown-list
+				value=modalContext.profile.gender
+				prefix=staticContext.prefix
+				prompt=staticContext.prompt
+				content=staticContext.genders
+				optionValuePath="content.value"
+				optionLabelPath="content.label"
+			}}
+		</div>
+	</div>
+{{/if}}

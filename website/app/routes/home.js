@@ -84,7 +84,7 @@ export default Ember.Route.extend(ResetScroll, SetupController, {
 		willTransition() {
 			let $window = Ember.$(window),
 				$nav = Ember.$('#navigation'),
-				parallax_class = "page-parallax",
+				parallax_class = 'page-parallax',
 				$bannerComponents = Ember.$('#banner-text, #banner-button');
 
 			// Revert and unbind animations

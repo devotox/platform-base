@@ -6,7 +6,7 @@ echo "####       Create Base Dockerrun.aws.json file      ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 source=$1
 destination="aws/aws.json"

@@ -1,11 +1,16 @@
 CREATE TABLE profile (
 	id uuid NOT NULL DEFAULT uuid_generate_v4(),
-	firstname varchar NOT NULL,
-	lastname varchar NOT NULL,
-	birthdate TIMESTAMP NULL,
-	gender gender NULL,
-	attributes JSONB,
+	user_id INTEGER NOT NULL,
+	firstname VARCHAR NOT NULL,
+	lastname VARCHAR NOT NULL,
+	birthdate DATE NULL,
+	gender GENDER NULL,
+	image VARCHAR NULL,
+	email VARCHAR NULL,
+	phone VARCHAR NULL,
 	created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	CONSTRAINT profile_pk PRIMARY KEY (id)
+	CONSTRAINT profile_pk PRIMARY KEY (id),
+	CONSTRAINT user_profile_fk FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE,
+	CONSTRAINT user_uniq UNIQUE(user_id)
 );

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 
 	@include base-css();
 
@@ -6,10 +7,12 @@ html, body {
 
 	@include base-globals();
 
+	@include base-classes();
+
 	#page {
 		flex: 1 0 auto;
-		padding-top: $nav-height;
 		padding-bottom: $page-padding-bottom-xxs;
+		padding-top: $nav-height;
 
 		@media only screen and (max-width: $screen-xxs-max) {
 			padding-bottom: $page-padding-bottom-xxs;

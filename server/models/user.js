@@ -1,15 +1,15 @@
 'use strict';
 
 let config  = require('../config.json');
-let host_options = config.host_options;
+let hostOptions = config.hostOptions;
+let noreply = 'noreply@platform.com';
+let test_email = 'devo.tox.89@gmail.com';
 
 module.exports = (Model) => {
-	let noreply = 'noreply@platform.com';
-	let test_email = 'devo.tox.89@gmail.com';
 
 	Model.afterRemote('create', (context, user, next) => {
 
-		let options = Object.assign({}, host_options, {
+		let options = Object.assign({}, hostOptions, {
 			user: user,
 			type: 'email',
 			from: noreply,

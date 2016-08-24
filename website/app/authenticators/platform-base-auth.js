@@ -19,14 +19,20 @@ let auth_utils = {
 		]);
 	},
 	set_user([access_token, user = {}]) {
-		if(user && user.data) {
-			user.data.access_token = access_token;
-		} else if (user) { user.access_token = access_token; }
-		return LocalForage.setItem('user', user).then( () => {
-			return { access_token: access_token, user: user };
+		let data = ( user && user.data ) || user;
+		data.access_token = access_token;
+
+		return LocalForage.setItem('user', data).then( () => {
+			if(user && user.data && user.data.type){
+				user.data.type = 'user';
+				this.get('store').push(user);
+				this.get('user').setUser(data);
+			}
+			return { access_token: access_token, user: data };
 		});
 	},
 	remove_user(data) {
+		this.get('user').removeUser();
 		return LocalForage.removeItem('user').then( () => data );
 	},
 	error(error) {
@@ -38,6 +44,8 @@ let auth_utils = {
 
 export default Base.extend({
 	api: Ember.inject.service(),
+	user: Ember.inject.service(),
+	store: Ember.inject.service(),
 	invalidate() {
 		return this.get('api')
 			.post('users/logout')

@@ -6,7 +6,7 @@ echo "####         Setup Docker Deploy Environment        ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo "Create Machine..."

@@ -6,7 +6,7 @@ echo "####         Create Docker VPN Configuratiom        ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 source docker/pre-compose
 

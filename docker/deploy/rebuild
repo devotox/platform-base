@@ -6,7 +6,7 @@ echo "####        Rebuild Docker Deploy Environment       ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo "Destroy Old Machine..."

@@ -24,7 +24,7 @@
 	&.page-parallax {
 		&.page-parallax-init { @include disable-transition; }
 
-		@media only screen and (min-width: $screen-md-min) {
+		@media only screen and (min-width: $screen-xs-min) {
 			background: transparent;
 
 			a, .nav-select-wrapper, select {

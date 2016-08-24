@@ -8,7 +8,7 @@ echo
 
 full=$1
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo "Start Machine..."

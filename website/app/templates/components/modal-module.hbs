@@ -1,0 +1,26 @@
+<div id="{{modalId}}" class="modal {{modalTypeClass}} {{modalClass}}">
+	<div class="modal-content">
+		{{#if modalHeader}}
+			<h4 class="modal-header">{{modalHeader}}</h4>
+		{{/if}}
+		<div class="modal-body">
+			{{#if modalTemplate}}
+				{{partial modalTemplate}}
+			{{else}}
+				{{modalBody}}
+			{{/if}}
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button
+			{{action "ok"}}
+			class="modal-action modal-close waves-effect waves-green btn-flat {{okClass}}">
+			{{okText}}
+		</button>
+		<button
+			{{action "cancel"}}
+			class="modal-action modal-close waves-effect waves-green btn-flat {{cancelClass}}">
+			{{cancelText}}
+		</button>
+	</div>
+</div>

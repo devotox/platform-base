@@ -1,29 +1,77 @@
 {
-  "name": "user",
-  "plural": "users",
-  "base": "User",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true,
-    "emailVerificationRequired": true
-  },
-  "properties": {},
-  "validations": [],
-  "relations": {
-    "roles": {
-      "type": "hasMany",
-      "model": "role",
-      "foreignKey": "roleid",
-      "through": "RoleMapping"
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+	"name": "user",
+	"plural": "users",
+	"base": "User",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": true,
+		"emailVerificationRequired": true
+	},
+	"properties": {},
+	"validations": [],
+	"relations": {
+		"roles": {
+			"type": "hasMany",
+			"model": "role",
+			"foreignKey": "roleid",
+			"through": "RoleMapping"
+		},
+		"purchased_locations": {
+			"type": "hasMany",
+			"model": "purchased-location",
+			"foreignKey": "user_id"
+		},
+		"profiles": {
+			"type": "hasMany",
+			"model": "profile",
+			"foreignKey": "user_id"
+		},
+		"profile": {
+			"type": "hasOne",
+			"model": "profile",
+			"foreignKey": "user_id"
+		}
+	},
+	"acls": [{
+		"accessType": "*",
+		"principalType": "ROLE",
+		"principalId": "admin",
+		"permission": "ALLOW"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "findById"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__get__profiles"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__findById__profiles"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__get__profile"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__findById__profile"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__get__purchased_locations"
+	}, {
+		"principalType": "ROLE",
+		"principalId": "$owner",
+		"permission": "ALLOW",
+		"property": "__findById__purchased_locations"
+	}],
+	"methods": {}
 }

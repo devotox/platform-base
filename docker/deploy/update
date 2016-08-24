@@ -6,7 +6,7 @@ echo "####          Update Docker & Dependencies          ####"
 echo "########################################################"
 echo
 
-source docker/deploy/vars
+source docker/vars
 
 echo
 echo  "Updating Homebrew and formulas..."

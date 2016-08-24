@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo
+echo "########################################################"
+echo "####          Docker Deploy AWS ECR Login           ####"
+echo "########################################################"
+echo
+
+source docker/vars
+
+echo
+echo "Start Machine..."
+docker-machine start $deploy_machine_name
+
+echo
+echo "Attach Machine to Terminal..."
+eval $(docker-machine env --shell bash $deploy_machine_name)
+
+echo
+echo "Login To Elastic Container Registry..."
+sh docker/deploy/run "\$(aws --region us-east-1 ecr get-login)"

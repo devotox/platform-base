@@ -9,6 +9,7 @@
 
 // Ember Extensions
 @import 'components/list-view';
+@import 'components/ember-leaflet';
 @import 'components/ember-cli-toggle';
 
 // Components Forms Styles
@@ -39,6 +40,7 @@
 @import 'components/materialize/hamburger';
 @import 'components/materialize/parallax';
 @import 'components/materialize/inputs';
+@import 'components/materialize/modals';
 
 // Site Component Styles
 @import 'site-components/page-parts/main-action-button';
