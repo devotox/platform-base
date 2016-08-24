@@ -92,6 +92,10 @@ module.exports = function(environment) {
 				platform: null
 			}
 		},
+		stripe: {
+			key: 'pk_test_p3loBzHTpqUZGSj5J8HDCY43',
+			publishableKey: 'pk_test_p3loBzHTpqUZGSj5J8HDCY43'
+		},
 		googleLeaflet: {
 			apiKey: ''
 		},
@@ -120,6 +124,7 @@ module.exports = function(environment) {
 	};
 
 	if (environment === 'development') {
+		// ENV.APP.LOG_STRIPE_SERVICE = true;
 		// ENV.APP.LOG_RESOLVER = true;
 		// ENV.APP.LOG_TRANSITIONS = true;
 		// ENV.APP.LOG_VIEW_LOOKUPS = true;
