@@ -13,9 +13,9 @@ export default Ember.Route.extend(ResetScroll, SetupController, {
 
 	setupController: function(){
 		this._super(...arguments);
-		Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+		Ember.run.scheduleOnce('afterRender', this, this.afterRender);
 	},
-	afterRenderEvent: function() {
+	afterRender: function() {
 		Ember.$('title').text('Devonte');
 		Ember.$('.external-contact-card').hide();
 

@@ -18,7 +18,7 @@ export default Ember.Component.extend(AfterRender, {
 
 	baseLanguage: Ember.computed.alias('global.baseLanguage'),
 
-	afterRenderEvent() {
+	afterRender() {
 		this.$().on('click', '.content[contenteditable="true"]', event => {
 			this.$(event.target).selectText();
 			event.stopImmediatePropagation();

@@ -34,7 +34,7 @@ export default Ember.Route.extend(LoadingSliderMixin, SetupController, Applicati
 		this._super(...arguments);
 		this.setupGlobalErrorHandler();
 	},
-	afterRenderEvent() {
+	afterRender() {
 		Ember.$('#hamburger').materialSideNav();
 		Ember.$('.fixed-action-btn').materialFAB();
 		this.get('timeout').wait(350, () => Ember.$(window).scrollTop(0) );

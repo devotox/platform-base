@@ -20,7 +20,7 @@ export default Ember.Component.extend(AfterRender, {
 	_timeout: Ember.inject.service('timeout'),
 	authenticator: config['ember-simple-auth'].authenticator,
 
-	afterRenderEvent: function(){
+	afterRender: function(){
 		this.$().materialForm();
 	},
 

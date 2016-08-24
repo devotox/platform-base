@@ -15,7 +15,7 @@ export default Ember.Component.extend(AfterRender, {
 
 	authenticator: config['ember-simple-auth'].authenticator,
 
-	afterRenderEvent: function(){
+	afterRender: function(){
 		this.$().materialForm();
 	},
 

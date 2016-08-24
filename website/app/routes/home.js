@@ -18,7 +18,7 @@ export default Ember.Route.extend(ResetScroll, SetupController, {
 		controller.set('device', this.get('device'));
 	},
 
-	afterRenderEvent() {
+	afterRender() {
 		let wait_time = 50,
 			timeout_id = null,
 			$window = Ember.$(window),

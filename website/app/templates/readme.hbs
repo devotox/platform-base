@@ -223,20 +223,20 @@ CSS - [data-page=&quot;&lt;pageName&gt;&quot;]
 	<h2 id="mixins">Mixins</h2>
 	<ul>
 		<li>A mixin can be created using `ember generate mixn &lt;mixin-name&gt;</li>
-		<li>A mixin was used to create the <code>afterRenderEvent</code> that can be used with views</li>
+		<li>A mixin was used to create the <code>afterRender</code> that can be used with views</li>
 	</ul>
 	<h4 id="mixin-example">Mixin Example</h4>
 	<pre><code>import Ember from &#39;ember&#39;;
 
 export default Ember.Mixin.create({
-	afterRenderEvent : Ember.K,
+	afterRender : Ember.K,
 
 	// This hook is guaranteed to be executed
 	// when the root element  of this view has been inserted into the DOM.
 
 	didInsertElement : function(){
 		this._super(...arguments);
-		Ember.run.scheduleOnce(&#39;afterRender&#39;, this, this.afterRenderEvent);
+		Ember.run.scheduleOnce(&#39;afterRender&#39;, this, this.afterRender);
 	}
 });
 </code></pre>
@@ -246,7 +246,7 @@ export default Ember.Mixin.create({
 import AfterRender from &#39;../mixins/after-render&#39;;
 
 export default Ember.View.extend(AfterRender, {
-	afterRenderEvent: function() {
+	afterRender: function() {
 		$(&#39;.button-collapse&#39;).sideNav();
 	}
 });
