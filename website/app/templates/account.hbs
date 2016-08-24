@@ -1,18 +1,36 @@
 <div class="container" data-page="{{pageName}}">
-	<h4 class="center-align">Account Details</h4>
+	<div class="row">
+		<h4 class="center-align col s12">Profile</h4><br/>
 
-	<div class="col s12 m8 offset-m2 l6 offset-l3">
-		<div class="card-panel grey lighten-5 z-depth-1">
-		  <div class="row valign-wrapper">
-			<div class="col s2">
-			  <img src="//lh3.googleusercontent.com/-apO1C4bT-60/AAAAAAAAAAI/AAAAAAAAIJs/wzxeOUNIELE/s120-c/photo.jpg" alt="Profile Image" class="circle responsive-img"> <!-- notice the "circle" class -->
+		<div class="col s12 m8 offset-m2 l6 offset-l3">
+			<div class="card-panel grey lighten-5 z-depth-1">
+				<div class="row valign-wrapper">
+					<div class="col s2 m3 l4">
+						<img src="{{model.profile.image}}" alt="Profile Image" class="circle responsive-img" />
+						<!-- notice the "circle" class -->
+					</div>
+					<div class="col s10 m9 l8">
+						<div class="black-text">
+							Welcome Back {{model.profile.firstname}}.
+						</div>
+						<div>
+							<a {{action "openModal"}}>Edit Profile</a>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col s10">
-			  <span class="black-text">
-				Welcome Back Devonte. How can I help you today...
-			  </span>
-			</div>
-		  </div>
 		</div>
-	  </div>
+	</div>
 </div>
+
+{{modal-module
+	start-open=false
+	modal-ok="saveProfile"
+	modal-load="initModal"
+
+	modalBody=modalBody
+	modalClass=modalClass
+	modalHeader=modalHeader
+	modalContext=modalContext
+	staticContext=staticContext
+	modalTemplate=modalTemplate}}
