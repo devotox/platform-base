@@ -1,5 +1,6 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { hasMany, belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
 	email: attr(),
@@ -9,6 +10,10 @@ export default Model.extend({
 	username: attr(),
 	password: attr(),
 	challenges: attr(),
-	lastUpdated: attr(),
-	emailVerified: attr(),
+	lastupdated: attr(),
+	emailverified: attr(),
+	profile: belongsTo('profile'),
+	// profiles: hasMany('profile'),
+	transactions: hasMany('transaction'),
+	purchased_locations: hasMany('purchased-location')
 });
