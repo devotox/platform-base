@@ -1,6 +1,6 @@
 <li>
 	<div class="userView">
-		<img class="background" src="//image.freepik.com/free-vector/nature-background-of-a-grassy-landscape_1048-1305.jpg">
+		<img class="background" src="/assets/images/default/user-background.png">
 
 		{{#if session.isAuthenticated}}
 			{{#link-to 'account'}}
@@ -15,7 +15,7 @@
 			{{/link-to}}
 		{{else}}
 			{{#link-to 'login'}}
-				<img class="circle" src="//www.fanspole.com/assets/default_user-c283cfbc3d432e22b1d2f1eef515d0b9.png">
+				<img class="circle" src="/assets/images/default/user-default-image.png">
 				<div class="white-text name">Login</div>
 				<div class="white-text email"></div>
 			{{/link-to}}
