@@ -20,4 +20,4 @@ eval $(docker-machine env --shell bash $machine_name)
 
 echo
 echo "Build Database..."
-docker exec -it ${application_name}_database_1 psql -U "postgres" -d "${appliation_name}" -f "build.sql"
+docker exec -it ${application_name}_database_1 psql -U "postgres" -d "${application_name}" -f "build.sql"

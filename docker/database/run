@@ -20,4 +20,4 @@ eval $(docker-machine env --shell bash $machine_name)
 
 echo
 echo "Run Database Command..."
-docker exec -it ${application_name}_database_1 psql -U "postgres" -d "${appliation_name}" $@
+docker exec -it ${application_name}_database_1 psql -U "postgres" -d "${application_name}" $@
